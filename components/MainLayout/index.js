@@ -37,7 +37,6 @@ class MainLayout extends React.Component {
       children,
       route,
       hideSearchBar,
-      hidePageHeader,
       isSearchPage,
       headLinks,
       pageTitle,
@@ -45,7 +44,6 @@ class MainLayout extends React.Component {
       pageDescription,
       seoType
     } = this.props;
-    const isHome = route.pathname === "/local"
     return (
       <div>
         <Helmet htmlAttributes={{ lang: "en" }} />
@@ -60,15 +58,13 @@ class MainLayout extends React.Component {
         <SmallScreenHeader
           isSearchPage={isSearchPage}
           route={route}
-          isHome={isHome}
         />
-        <GlobalHeader isHome={isHome} />
-        {!hidePageHeader &&
-          <PageHeader
-            query={route.query}
-            searchQuery={route.query.q}
-            hideSearchBar={hideSearchBar}
-          />}
+        <GlobalHeader />
+        <PageHeader
+          query={route.query}
+          searchQuery={route.query.q}
+          hideSearchBar={hideSearchBar}
+        />
         {children}
         <Footer route={route} />
       </div>

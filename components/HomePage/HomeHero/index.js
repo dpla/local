@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import Button from "shared/Button/Button";
+import Button from "shared/Button";
 
 const SITE_ENV = process.env.SITE_ENV
 const LOCAL_ID = process.env.LOCAL_ID

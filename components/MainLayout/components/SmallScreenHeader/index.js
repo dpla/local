@@ -32,7 +32,7 @@ class SmallScreenHeader extends Component {
 
     return (
       <div className={`${css.wrapper}`}>
-        <div className={css.header}>
+        {/* <div className={css.header}>
             <Link prefetch as="/" href="/local">
               <a>
                 <img
@@ -60,7 +60,7 @@ class SmallScreenHeader extends Component {
               : ""} site-max-width`}
             css={css}
             isHome={isHome}
-          />
+          /> */}
       </div>
     );
   }

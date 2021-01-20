@@ -2,12 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-import DPLALogoWide from "../../../../static/images/dpla-logo-white.svg";
+import DPLALogoWide from "static/images/dpla-logo-white.svg";
 
-import { SITE_ENV, LOCAL_ID } from "components/HomePage/HomeHero/node_modules/constants/env";
+const SITE_ENV = process.env.SITE_ENV
+const LOCAL_ID = process.env.LOCAL_ID
 import { LOCALS } from "constants/local";
 
-import css from "./PageHeader.scss";
+import css from "./PageHeader.module.scss";
 
 class PageHeader extends React.Component {
   render() {

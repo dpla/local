@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
-import Button from "components/shared/Button";
+import Button from "shared/Button/Button";
 
-import { SITE_ENV, LOCAL_ID } from "constants/env";
+const SITE_ENV = process.env.SITE_ENV
+const LOCAL_ID = process.env.LOCAL_ID
+
 import { LOCALS } from "constants/local";
 
-import css from "./HomeHero.scss";
+import css from "./HomeHero.module.scss";
 
 const bgImage = SITE_ENV !== "local"
   ? "/static/images/home-hero-bg.png"

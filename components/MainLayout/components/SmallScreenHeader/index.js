@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import NavigationUser from "../shared/NavigationUser";
-import NavigationPro from "../shared/NavigationPro";
 import NavigationLocal from "../shared/NavigationLocal";
-
-import css from "./SmallScreenStyles.scss";
-
-import { SITE_ENV, LOCAL_ID } from "components/HomePage/HomeHero/node_modules/constants/env";
+import css from "./SmallScreenStyles.module.scss";
 import { LOCALS } from "constants/local";
+
+const LOCAL_ID = process.env.LOCAL_ID
 
 class SmallScreenHeader extends Component {
   state = {
@@ -36,13 +33,6 @@ class SmallScreenHeader extends Component {
     return (
       <div className={`${css.wrapper}`}>
         <div className={css.header}>
-          {(SITE_ENV === "user" || SITE_ENV === "pro") &&
-            <Link prefetch as="/" href={SITE_ENV === "user" ? "/" : "/pro"}>
-              <a className={css.logo}>
-                <span>Digital Public Library of America</span>
-              </a>
-            </Link>}
-          {SITE_ENV === "local" &&
             <Link prefetch as="/" href="/local">
               <a>
                 <img
@@ -53,7 +43,7 @@ class SmallScreenHeader extends Component {
                   ].logo}`}
                 />
               </a>
-            </Link>}
+            </Link>
           <button
             type="button"
             aria-expanded={menuIsOpen}
@@ -64,30 +54,13 @@ class SmallScreenHeader extends Component {
             {menuIsOpen && <span>Hide<br />Menu</span>}
           </button>
         </div>
-        {SITE_ENV === "user" &&
-          <NavigationUser
-            className={`${css.menuContainer} ${menuIsOpen
-              ? css.isOpen
-              : ""} site-max-width`}
-            css={css}
-            isHome={isHome}
-          />}
-        {SITE_ENV === "pro" &&
-          <NavigationPro
-            className={`${css.menuContainer} ${menuIsOpen
-              ? css.isOpen
-              : ""} site-max-width`}
-            css={css}
-            isHome={isHome}
-          />}
-        {SITE_ENV === "local" &&
           <NavigationLocal
             className={`${css.menuContainer} ${menuIsOpen
               ? css.isOpen
               : ""} site-max-width`}
             css={css}
             isHome={isHome}
-          />}
+          />
       </div>
     );
   }

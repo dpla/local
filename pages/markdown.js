@@ -11,7 +11,7 @@ import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
 import { getCurrentUrl } from "lib";
 
-import { LOCAL_ID } from "components/HomePage/HomeHero/node_modules/constants/env";
+const LOCAL_ID = process.env.LOCAL_ID
 import { LOCALS } from "constants/local";
 
 import utils from "stylesheets/utils.scss";

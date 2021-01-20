@@ -10,7 +10,7 @@ import PageHeader from "../PageHeader";
 import * as gtag from "lib/gtag";
 import { getFullPath, getCurrentFullUrl } from "lib";
 
-import { SITE_ENV } from "components/HomePage/HomeHero/node_modules/constants/env";
+const SITE_ENV = process.env.SITE_ENV
 
 class MinimalLayout extends React.Component {
   // Google Analytics tracking for MinimalLayout-using pages (404/500)

@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import { LOCAL_ID } from "components/HomePage/HomeHero/node_modules/constants/env";
+const LOCAL_ID = process.env.LOCAL_ID
 
-import css from "./Footer.scss";
+import css from "./Footer.module.scss";
 import { LOCALS } from "constants/local";
 
 const logo = "/static/images/dpla-logo.svg";

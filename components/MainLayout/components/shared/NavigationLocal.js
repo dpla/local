@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Link from "next/link";
 
 import { LOCALS } from "constants/local";
-import { LOCAL_ID } from "components/HomePage/HomeHero/node_modules/constants/env";
+const SITE_ENV = process.env.SITE_ENV
+const LOCAL_ID = process.env.LOCAL_ID
 import * as PropTypes from "prop-types";
 
 class NavigationLocal extends Component {

@@ -1,14 +1,13 @@
 import React from "react";
-import NavigationLocal from "../shared/NavigationLocal";
+import Navigation from "../shared/Navigation";
 import css from "../shared/DesktopStyles.module.scss";
 
-const GlobalHeader = ({ isHome }) =>
+const GlobalHeader = () =>
   <div className={css.header}>
-      {/* <NavigationLocal
-        className={`${css.linksContainer} site-max-width`}
-        css={css}
-        isHome={isHome}
-      /> */}
+    <Navigation
+      className={`${css.linksContainer} site-max-width`}
+      css={css}
+    />
   </div>;
 
 export default GlobalHeader;

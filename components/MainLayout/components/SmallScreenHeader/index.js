@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import NavigationLocal from "../shared/NavigationLocal";
+import Navigation from "../shared/Navigation";
 import css from "./SmallScreenStyles.module.scss";
 import { LOCALS } from "constants/local";
 
@@ -54,7 +54,7 @@ class SmallScreenHeader extends Component {
             {menuIsOpen && <span>Hide<br />Menu</span>}
           </button>
         </div>
-          <NavigationLocal
+          <Navigation
             className={`${css.menuContainer} ${menuIsOpen
               ? css.isOpen
               : ""} site-max-width`}

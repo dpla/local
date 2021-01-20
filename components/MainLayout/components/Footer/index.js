@@ -1,9 +1,70 @@
 import React from "react";
-import SmallFooterLocal from "./SmallFooterLocal";
 import css from "./Footer.module.scss";
+import { LOCALS, LOCAL_ID } from "constants/local";
+import Link from "next/link";
 
-const Footer = ({ route }) =>
-  <footer className={css.wrapper}>
-    {/* <SmallFooterLocal route={route} /> */}
-  </footer>;
+const logo = "/static/images/dpla-logo.svg";
+
+const Footer = () => {
+  let logoHtml;
+  if (LOCAL_ID === "wisconsin") {
+    logoHtml = (
+      <a href={`${LOCALS[LOCAL_ID].externalLink}`}>
+        <img
+          className={css.localLogo}
+          alt={`${LOCALS[LOCAL_ID].name} Home`}
+          src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID]
+            .logo}`}
+        />
+      </a>
+    );
+  } else if (LOCAL_ID === "tennessee") {
+    logoHtml = (
+      <Link prefetch href="/local" as="/">
+        <a>
+          <img
+            className={css.localLogo}
+            alt={`${LOCALS[LOCAL_ID].name} Home`}
+            src={`/static/tennessee/logo2.png`}
+          />
+        </a>
+      </Link>
+    );
+
+  } else {
+    logoHtml = (
+      <Link prefetch href="/local" as="/">
+        <a>
+          <img
+            className={css.localLogo}
+            alt={`${LOCALS[LOCAL_ID].name} Home`}
+            src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID]
+              .logo}`}
+          />
+        </a>
+      </Link>
+    );
+  }
+
+  return (
+    <footer className={css.wrapper}>
+      <div className={css.smallFooterWrapper}>
+        <div className={`${css.smallFooter} site-max-width`}>
+          {logoHtml}
+          <Link prefetch href="//dp.la">
+            <a>
+              <img
+                className={css.partnershipLogo}
+                alt="In partnership with DPLA"
+                src={logo}
+              />
+            </a>
+          </Link>
+        </div>
+      </div>
+
+    </footer>
+  )
+}
+
 export default Footer;

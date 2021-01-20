@@ -6,7 +6,6 @@ import DPLAHead from "components/DPLAHead";
 import SkipToContent from "shared/SkipToContent";
 import SmallScreenHeader from "./components/SmallScreenHeader";
 import GlobalHeader from "./components/GlobalHeader";
-import PageHeader from "./components/PageHeader";
 import Footer from "./components/Footer";
 
 // import * as gtag from "lib/gtag";
@@ -60,13 +59,8 @@ class MainLayout extends React.Component {
           route={route}
         />
         <GlobalHeader />
-        <PageHeader
-          query={route.query}
-          searchQuery={route.query.q}
-          hideSearchBar={hideSearchBar}
-        />
         {children}
-        <Footer route={route} />
+        <Footer />
       </div>
     );
   }

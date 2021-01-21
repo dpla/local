@@ -11,8 +11,7 @@ import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
 import { getCurrentUrl } from "lib";
 
-const LOCAL_ID = process.env.LOCAL_ID
-import { LOCALS } from "constants/local";
+import { LOCALS, LOCAL_ID } from "constants/local";
 
 import utils from "stylesheets/utils.scss";
 import contentCss from "stylesheets/content-pages.scss";

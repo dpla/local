@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { LOCALS, LOCAL_ID } from "constants/local";
-import css from "./HomeHero.module.scss";
+import Link from "next/link"
+import { LOCALS, LOCAL_ID } from "constants/local"
+import css from "./HomeHero.module.scss"
 
 const bgImage = `/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID].background}`;
 

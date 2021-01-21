@@ -1,24 +1,22 @@
 import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
-import HomeHero from "components/HomeHero";
-import Vermont from "components/Vermont"
+import VermontAbout from "components/Vermont/About"
 import { LOCALS, LOCAL_ID } from "constants/local";
 
 const components = {
-  vermont: Vermont
+  vermont: VermontAbout
 }
     
-const Home = ({ router }) => {
-  const HomeIntro = components[LOCALS[LOCAL_ID].theme];
+const About = ({ router }) => {
+  const About = components[LOCALS[LOCAL_ID].theme];
 
   return (
     <MainLayout hidePageHeader={true} hideSearchBar={true} route={router}>
       <div id="main" role="main">
-        <HomeHero />
-        <HomeIntro />
+        <About />
       </div>
     </MainLayout>
   )
 }
 
-export default withRouter(Home);
+export default withRouter(About);

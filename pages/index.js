@@ -3,20 +3,24 @@ import { withRouter } from "next/router";
 
 import MainLayout from "components/MainLayout";
 import HomeHero from "components/HomePage/HomeHero";
-import LocalIntro from "components/HomePage/LocalIntro";
-
-// import { getCurrentUrl } from "lib";
-
+import Vermont from "components/Vermont"
 import { LOCALS, LOCAL_ID } from "constants/local";
 
-const Home = ({ router, content }) =>
-  <MainLayout hidePageHeader={true} hideSearchBar={true} route={router}>
-    <div id="main" role="main">
-      <HomeHero />
-      <LocalIntro content={content} />
-    </div>
-  </MainLayout>;
+const components = {
+  vermont: Vermont
+}
+    
+const Home = ({ router }) => {
+  const DynamicComponent = components[LOCALS[LOCAL_ID].theme];
 
-
+  return (
+    <MainLayout hidePageHeader={true} hideSearchBar={true} route={router}>
+      <div id="main" role="main">
+        <HomeHero />
+        <DynamicComponent />
+      </div>
+    </MainLayout>
+  )
+}
 
 export default withRouter(Home);

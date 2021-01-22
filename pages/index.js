@@ -1,4 +1,6 @@
+import React from "react";
 import { withRouter } from "next/router";
+
 import MainLayout from "components/MainLayout";
 import HomeHero from "components/HomeHero";
 import Vermont from "components/Vermont"
@@ -9,13 +11,13 @@ const components = {
 }
     
 const Home = ({ router }) => {
-  const HomeIntro = components[LOCALS[LOCAL_ID].theme];
+  const DynamicComponent = components[LOCALS[LOCAL_ID].theme];
 
   return (
     <MainLayout hidePageHeader={true} hideSearchBar={true} route={router}>
       <div id="main" role="main">
         <HomeHero />
-        <HomeIntro />
+        <DynamicComponent />
       </div>
     </MainLayout>
   )

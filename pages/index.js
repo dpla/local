@@ -4,10 +4,12 @@ import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
 import HomeHero from "components/HomeHero";
 import Vermont from "components/Vermont"
+import Florida from "components/Florida"
 import { LOCALS, LOCAL_ID } from "constants/local";
 
 const components = {
-  vermont: Vermont
+  vermont: Vermont,
+  florida: Florida
 }
     
 const Home = ({ router }) => {

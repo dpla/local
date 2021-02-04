@@ -25,7 +25,7 @@ $borderColor: rgba(0, 0, 0, 0.75);
   }
 }
 
-:global .site-max-width {
+.site-max-width {
   max-width: $siteMaxWidth;
 }
 

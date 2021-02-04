@@ -74,7 +74,7 @@ const Navigation = ({ className, css }) => {
             <a>Home</a>
           </Link>
         </li>
-        {categories.map(navItem => {
+        {/* {categories.map(navItem => {
           return (
             <li key={navItem.id}>
               <Link
@@ -84,9 +84,9 @@ const Navigation = ({ className, css }) => {
               </Link>
             </li>
           );
-        })}
+        })} */}
 
-        {contactHtml && contactHtml}
+        {/* {contactHtml && contactHtml} */}
         {LOCALS[LOCAL_ID].hasTerms && (
           <li>
             <Link prefetch href="/terms">

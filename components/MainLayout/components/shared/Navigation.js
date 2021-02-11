@@ -108,6 +108,13 @@ const Navigation = ({ className, css }) => {
             </Link>
           </li>
         )}
+        {LOCALS[LOCAL_ID].hasExhibition && (
+          <li>
+            <Link prefetch href="/exhibitions">
+              <a>Exhibitions</a>
+            </Link>
+          </li>
+        )}
         <li>
           <Link prefetch href="/lists">
             <a>My Lists</a>

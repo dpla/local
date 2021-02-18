@@ -1,0 +1,23 @@
+@import "stylesheets/variables";
+
+.media_block__section {
+  padding: 1rem;
+
+  h3 {
+    padding-bottom: .75rem;
+    text-align: center;
+  }
+
+  h4 {
+    padding: .75rem 0;
+  }
+
+  p {
+    line-height: 1.5rem;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+}

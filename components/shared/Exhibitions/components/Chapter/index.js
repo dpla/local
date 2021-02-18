@@ -1,5 +1,7 @@
 import css from "./Chapter.module.scss"
 import ChapterTitle from "./components/ChapterTitle"
+import TextBlock from "./components/TextBlock"
+import MediaBlock from "./components/MediaBlock"
 
 const Chapter = ({ chapter, index }) => {
   return (
@@ -15,10 +17,10 @@ const Chapter = ({ chapter, index }) => {
         return (
           <>
             {block.layout == "text" &&
-              <p>text</p>
+              <TextBlock data={block} />
             }
             {block.layout == "media" &&
-              <p>media</p>
+              <MediaBlock data={block}/>
             }
           </>
         )

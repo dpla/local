@@ -8,7 +8,7 @@ const ExhibitionTitle = ({title, description, credits, citation, thumbnail, bann
         <img src={image} alt={imageAlt}/>
       </div> */}
       <div className={css.chapter_title__info}>
-        <p>{title}</p>
+        <h1>{title}</h1>
         {parse(description)}
         {credits}
         {parse(citation)}

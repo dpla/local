@@ -38,6 +38,10 @@ p, ul, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serifFont;
+}
+
 button, input, optgroup, select, textarea {
   font-size: 100%;
   margin: 0;
@@ -51,6 +55,10 @@ a, button, input, optgroup, select, textarea {
 
 figure {
   margin: 0;
+}
+
+blockquote {
+  font-style: italic;
 }
 
 html,

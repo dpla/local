@@ -7,7 +7,7 @@ const ChapterTitle = ({chapter, years, title, image, imageAlt}) => {
         <img src={image} alt={imageAlt}/>
       </div>
       <div className={css.chapter_title__info}>
-        <p>{chapter} | {years}</p>
+        <p>{chapter}</p>
         <p>{title}</p>
       </div>
     </section>

@@ -8,17 +8,10 @@
   // overflow: hidden;
 
   display: flex;
-  min-height: calc(100% + 2px);
+  // min-height: calc(100% + 2px);
   overflow: hidden;
   flex-direction: column;
   font-size: 1.2rem;
-
-  .chapter_title__image {
-    flex-grow: 1;  
-    position: relative;
-    background-color: #000;
-    z-index: 1;
-  }
 
   .chapter_title__info {
     display: flex;
@@ -38,8 +31,6 @@
       padding: .5em 0;
     }
   }
-
-
 }
 
 /* Extra small devices (phones, 600px and down) */

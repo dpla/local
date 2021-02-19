@@ -1,4 +1,4 @@
-.chapter_title__section {
+.exhibit_title__section {
   // display: flex;
   // align-items: center;
   // flex-direction: column;
@@ -10,14 +10,18 @@
   overflow: hidden;
   flex-direction: column;
 
-  .chapter_title__image {
+  .exhibit_title__image {
     flex-grow: 1;  
     position: relative;
     background-color: #000;
     z-index: 1;
+
+    img {
+      width: 100%;
+    }
   }
 
-  .chapter_title__info {
+  .exhibit_title__info {
     display: flex;
     min-height: 100%;
     flex-direction: column;
@@ -49,10 +53,10 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .chapter_title__section {
+  .exhibit_title__section {
     flex-direction: row-reverse;
 
-    .chapter_title__info {
+    .exhibit_title__info {
       width: 50%;
     }
   }

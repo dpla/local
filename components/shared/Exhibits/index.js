@@ -1,27 +1,27 @@
-import ExhibitionTitle from "./components/ExhibitionTitle"
+import ExhibitTitle from "./components/ExhibitTitle"
 import Chapter from "./components/Chapter"
-import scss from "./Exhibition.module.scss"
-import { exhibitionExample } from "constants/exhibition"
+import scss from "./Exhibit.module.scss"
+import { exhibitExample } from "constants/exhibit"
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const Exhibition = () => {
+const Exhibit = () => {
   return (
-    <section className={scss.exhibition__section}>
-      <ExhibitionTitle
-        title={exhibitionExample.title}
-        description={exhibitionExample.description}
-        credits={exhibitionExample.credits}
-        citation={exhibitionExample.citation}
-        thumbnail={exhibitionExample.thumbnail}
-        banner={exhibitionExample.banner}
-        caption={exhibitionExample.caption}
+    <section className={scss.exhibit__section}>
+      <ExhibitTitle
+        title={exhibitExample.title}
+        description={exhibitExample.description}
+        credits={exhibitExample.credits}
+        citation={exhibitExample.citation}
+        thumbnail={exhibitExample.thumbnail}
+        banner={exhibitExample.banner}
+        caption={exhibitExample.caption}
       />
 
-      {exhibitionExample.pages.map((chapter, index) => {
+      {exhibitExample.pages.map((chapter, index) => {
         return (
           <div key={`chapter-${index+1}`}>
             <Accordion>
@@ -44,4 +44,4 @@ const Exhibition = () => {
   )
 }
 
-export default Exhibition
+export default Exhibit

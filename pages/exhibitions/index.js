@@ -3,23 +3,23 @@ import MainLayout from "components/MainLayout";
 // import VermontExhibitions from "components/Vermont/Exhibitions"
 // import FloridaExhibitions from "components/Florida/Exhibitions"
 import { LOCALS, LOCAL_ID } from "constants/local";
-import Exhibitions from "components/shared/Exhibitions"
+import Exhibits from "components/shared/Exhibits"
 
 // const components = {
-//   vermont: VermontExhibitions
+//   vermont: VermontExhibits
 // }
 
-const ExhibitionsPage = ({ router }) => {
+const ExhibitsPage = ({ router }) => {
   const local = LOCALS[LOCAL_ID]
-  // const Exhibitions = components[local.theme];
-  const title = local.routes['/exhibitions'].title
-  const description = local.routes['/exhibitions'].description
+  // const Exhibits = components[local.theme];
+  const title = local.routes['/exhibits'].title
+  const description = local.routes['/exhibits'].description
 
   return (
     <div id="main" role="main">
-      <Exhibitions />
+      <Exhibits />
     </div>
   )
 }
 
-export default withRouter(ExhibitionsPage);
+export default withRouter(ExhibitsPage);

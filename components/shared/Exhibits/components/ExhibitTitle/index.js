@@ -1,8 +1,8 @@
-import scss from "./ExhibitionTitle.module.scss"
+import scss from "./ExhibitTitle.module.scss"
 import parse from 'html-react-parser';
-import { EXHIBITS_ENDPOINT } from "constants/exhibitions"
+import { EXHIBITS_ENDPOINT } from "constants/exhibits"
 
-const ExhibitionTitle = ({title, description, credits, citation, banner}) => {
+const ExhibitTitle = ({title, description, credits, citation, banner}) => {
   return (
     <section className={scss.exhibit_title__section}>   
       <div className={scss.exhibit_title__image}>
@@ -18,4 +18,4 @@ const ExhibitionTitle = ({title, description, credits, citation, banner}) => {
   )
 }
 
-export default ExhibitionTitle
+export default ExhibitTitle

@@ -108,10 +108,10 @@ const Navigation = ({ className, css }) => {
             </Link>
           </li>
         )}
-        {LOCALS[LOCAL_ID].hasExhibition && (
+        {LOCALS[LOCAL_ID].hasExhibits && (
           <li>
-            <Link prefetch href="/exhibitions">
-              <a>Exhibitions</a>
+            <Link prefetch href="/exhibits">
+              <a>Exhibits</a>
             </Link>
           </li>
         )}

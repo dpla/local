@@ -4,8 +4,8 @@ import Helmet from "react-helmet";
 
 import DPLAHead from "components/DPLAHead";
 import SkipToContent from "shared/SkipToContent";
-import SmallScreenHeader from "./components/SmallScreenHeader";
-import GlobalHeader from "./components/GlobalHeader";
+import MobileNavbar from "./components/MobileNavbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 // import * as gtag from "lib/gtag";
@@ -54,11 +54,11 @@ class MainLayout extends React.Component {
           pageDescription={pageDescription}
         />
         <SkipToContent />
-        <SmallScreenHeader
+        <MobileNavbar
           isSearchPage={isSearchPage}
           route={route}
         />
-        <GlobalHeader />
+        <Navbar />
         {children}
         <Footer />
       </div>

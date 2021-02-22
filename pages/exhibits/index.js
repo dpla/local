@@ -16,9 +16,14 @@ const ExhibitsPage = ({ router }) => {
   const description = local.routes['/exhibits'].description
 
   return (
-    <div id="main" role="main">
-      <Exhibits />
-    </div>
+
+    <MainLayout  route={router} pageTitle={title}
+    pageDescription={description}>
+      <div id="main" role="main">
+        <Exhibits />
+
+      </div>
+    </MainLayout>
   )
 }
 

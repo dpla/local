@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import Navigation from "../shared/Navigation";
+import Navbar from "../Navbar";
+import Navigation from "../shared/Navigation"
 import css from "./SmallScreenStyles.module.scss";
-import { LOCALS } from "constants/local";
+import { LOCALS, LOCAL_ID } from "constants/local";
 
-const LOCAL_ID = process.env.LOCAL_ID
-
-class SmallScreenHeader extends Component {
+class MobileNavbar extends Component {
   state = {
     menuIsOpen: false,
     searchIsOpen: false
@@ -32,7 +31,7 @@ class SmallScreenHeader extends Component {
 
     return (
       <div className={`${css.wrapper}`}>
-        {/* <div className={css.header}>
+        <div className={css.header}>
             <Link prefetch as="/" href="/local">
               <a>
                 <img
@@ -54,16 +53,19 @@ class SmallScreenHeader extends Component {
             {menuIsOpen && <span>Hide<br />Menu</span>}
           </button>
         </div>
+          {/* <Navbar className={`${css.menuContainer} ${menuIsOpen
+              ? css.isOpen
+              : ""} site-max-width`} style={css}/> */}
           <Navigation
             className={`${css.menuContainer} ${menuIsOpen
               ? css.isOpen
               : ""} site-max-width`}
             css={css}
             isHome={isHome}
-          /> */}
+          />
       </div>
     );
   }
 }
 
-export default SmallScreenHeader;
+export default MobileNavbar;

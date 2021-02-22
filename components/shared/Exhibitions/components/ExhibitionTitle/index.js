@@ -1,11 +1,12 @@
 import scss from "./ExhibitionTitle.module.scss"
 import parse from 'html-react-parser';
+import { EXHIBITS_ENDPOINT } from "constants/exhibitions"
 
-const ExhibitionTitle = ({title, description, credits, citation, banner, caption}) => {
+const ExhibitionTitle = ({title, description, credits, citation, banner}) => {
   return (
     <section className={scss.exhibit_title__section}>   
       <div className={scss.exhibit_title__image}>
-        <img src={`${banner}`} alt=""/>
+        <img src={`${EXHIBITS_ENDPOINT}${banner}`} alt=""/>
       </div>
       <div className={scss.exhibit_title__info}>
         <h1>{title}</h1>

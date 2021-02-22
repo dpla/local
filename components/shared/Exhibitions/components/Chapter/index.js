@@ -1,28 +1,23 @@
-import ChapterTitle from "./components/ChapterTitle"
 import TextBlock from "./components/TextBlock"
 import MediaBlock from "./components/MediaBlock"
+import scss from "./Chapter.module.scss"
 
-const Chapter = ({ chapter, index }) => {
+const Chapter = ({ chapter }) => {
   return (
-    <>
-      <ChapterTitle
-        chapter={`Chapter ${index + 1}`}
-        title={chapter.title}
-        key={`chapter-${index + 1}`} />
-
+    <div className={scss.chapter}>
       {chapter.page_blocks.map((block, index) => {
         return (
-          <>
+          <div key={`page-blocks-${index}`}>
             {block.layout == "text" &&
               <TextBlock data={block} />
             }
             {block.layout == "media" &&
               <MediaBlock data={block}/>
             }
-          </>
+          </div>
         )
       })}
-    </>
+    </div>
   )
 }
 

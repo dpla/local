@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import Navbar from "../Navbar";
-import Navigation from "../shared/Navigation"
+import Navigation from "./Navigation"
 import css from "./SmallScreenStyles.module.scss";
 import { LOCALS, LOCAL_ID } from "constants/local";
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 class MobileNavbar extends Component {
   state = {
@@ -27,7 +28,6 @@ class MobileNavbar extends Component {
 
   render() {
     const { searchIsOpen, menuIsOpen } = this.state;
-    const { isSearchPage, route, isHome } = this.props;
 
     return (
       <div className={`${css.wrapper}`}>
@@ -37,7 +37,7 @@ class MobileNavbar extends Component {
                 <img
                   className={css.localLogo}
                   alt={`${LOCALS[LOCAL_ID].name} Home`}
-                  src={`/static/local/${LOCALS[LOCAL_ID].theme}/${LOCALS[
+                  src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[
                     LOCAL_ID
                   ].logo}`}
                 />
@@ -49,19 +49,14 @@ class MobileNavbar extends Component {
             onClick={this.toggleMenu}
             className={`${css.menuButton} ${menuIsOpen ? css.isOpen : ""}`}
           >
-            {!menuIsOpen && <span>Show<br />Menu</span>}
-            {menuIsOpen && <span>Hide<br />Menu</span>}
+            {!menuIsOpen ? <MenuIcon /> : <CloseIcon />}
           </button>
         </div>
-          {/* <Navbar className={`${css.menuContainer} ${menuIsOpen
-              ? css.isOpen
-              : ""} site-max-width`} style={css}/> */}
           <Navigation
             className={`${css.menuContainer} ${menuIsOpen
               ? css.isOpen
               : ""} site-max-width`}
             css={css}
-            isHome={isHome}
           />
       </div>
     );

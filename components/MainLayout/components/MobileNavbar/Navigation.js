@@ -6,7 +6,7 @@ import * as PropTypes from "prop-types";
 
 class Navigation extends Component {
   render() {
-    let { isHome, className, css } = this.props;
+    let { className, css } = this.props;
     var visitHtml;
     var contactHtml;
     var arbitraryHtml = null;
@@ -85,13 +85,6 @@ class Navigation extends Component {
     return (
       <div className={className} id={"Navigation"}>
         <ul className={css.links}>
-          {!isHome && (
-            <li>
-              <Link prefetch href="/local" as="/">
-                <a>Home</a>
-              </Link>
-            </li>
-          )}
           {arbitraryHtml}
           {contactHtml && contactHtml}
           {LOCALS[LOCAL_ID].hasTerms && (
@@ -135,7 +128,6 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  isHome: PropTypes.any,
   className: PropTypes.any,
   css: PropTypes.any
 };

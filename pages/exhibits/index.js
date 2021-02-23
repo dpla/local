@@ -1,7 +1,7 @@
 import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
 import { LOCALS, LOCAL_ID } from "constants/local";
-import Exhibits from "components/shared/Exhibits"
+import Exhibits from "components/Exhibits"
 import DPLAHead from "components/DPLAHead";
 
 const ExhibitsPage = ({ router }) => {

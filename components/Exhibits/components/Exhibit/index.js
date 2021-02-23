@@ -1,7 +1,7 @@
-import ExhibitTitle from "./components/ExhibitTitle"
-import Chapter from "./components/Chapter"
-import scss from "./Exhibit.module.scss"
-import { exhibitExample } from "constants/exhibit"
+import Title from "./components/Exhibit/Title"
+import Chapter from "./components/Exhibit/Chapter"
+import scss from "./Exhibits.module.scss"
+import { exhibitExample } from "constants/exhibit.js"
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const Exhibit = () => {
   return (
     <section className={scss.exhibit__section}>
-      <ExhibitTitle
+      <Title
         title={exhibitExample.title}
         description={exhibitExample.description}
         credits={exhibitExample.credits}

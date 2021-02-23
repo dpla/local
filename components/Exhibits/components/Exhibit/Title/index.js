@@ -1,5 +1,5 @@
 import scss from "./ExhibitTitle.module.scss"
-import parse from 'html-react-parser';
+import parse from 'html-react-parser'
 import { EXHIBITS_ENDPOINT } from "constants/exhibits"
 
 const ExhibitTitle = ({title, description, credits, citation, banner}) => {

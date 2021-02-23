@@ -60,7 +60,7 @@ class MainLayout extends React.Component {
         />
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

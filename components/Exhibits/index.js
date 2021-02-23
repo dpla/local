@@ -1,17 +1,33 @@
-import ExhibitTitle from "./components/Exhibit/Title"
-import Chapter from "./components/Exhibit/Chapter"
 import scss from "./Exhibits.module.scss"
 import { exhibitExample } from "constants/exhibit.js"
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
+import { EXHIBITS_ENDPOINT } from "constants/exhibits.js"
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Exhibits = () => {
   return (
     <section className={scss.exhibit__section}>
-      
+      <h1>Exhibits</h1>
+
+      <Card className={scss.card}>
+        <CardActionArea href={`exhibits/${exhibitExample.slug}`}>
+          <CardMedia
+            component="img"
+            alt={exhibitExample.caption}
+            height="140"
+            image={`${EXHIBITS_ENDPOINT}${exhibitExample.banner}`}
+            title={exhibitExample.caption}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {exhibitExample.title}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </section>
   )
 }

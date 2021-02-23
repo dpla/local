@@ -1,11 +1,11 @@
 import React from "react"
 import MainLayout from "components/MainLayout"
-import ItemList from "components/CollectionsPage/ItemList"
+// import ItemList from "components/CollectionsPage/ItemList"
 import fs from 'fs'
 import path from 'path'
-import { collections } from "constants/collections"
-import BWSHead from "components/BWSHead";
-import BreadcrumbsModule from "components/CollectionsPage/BreadcrumbsModule"
+// import { collections } from "constants/collections"
+import DPLAHead from "components/DPLAHead";
+// import BreadcrumbsModule from "components/CollectionsPage/BreadcrumbsModule"
 
 function Collection({ collection, items }) {
 
@@ -14,13 +14,13 @@ function Collection({ collection, items }) {
         className="main"
         role="main"
       >
-        <BWSHead 
+        <DPLAHead 
           pageTitle={`${collection.name} | DPLA`}
           pageDescription={collection.description}
           pageImage={collection.image}
           pageImageCaption={collection.name}
         />
-        <BreadcrumbsModule
+        {/* <BreadcrumbsModule
             breadcrumbs={[
               {
                 title: "Collections",
@@ -33,7 +33,7 @@ function Collection({ collection, items }) {
               }
             ]}
           />
-        <ItemList collection={ collection } items={ items } />
+        <ItemList collection={ collection } items={ items } /> */}
       </MainLayout>
   )
 };

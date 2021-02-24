@@ -1,17 +1,22 @@
-.exhibit__section {
+.exhibits__section {
   transition: opacity .5s cubic-bezier(0.645, 0.045, 0.355, 1);
   position: fixed;
-  opacity: 1;
   height: 100%;
   width: 100%;
-  left: auto;
-  right: auto;
   background-color: #FAF9F1;
-  overflow: auto;
+  display: flex;
+  justify-content: center;
+  
+  .exhibits__container {
+    h1 {
+      padding: 1rem 0;
+    }
 
-  .card {
-    max-width: 345px;
+    .card {
+      max-width: 345px;
+    }
   }
+
 
 }
 

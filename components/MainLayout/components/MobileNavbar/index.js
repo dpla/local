@@ -32,7 +32,7 @@ class MobileNavbar extends Component {
     return (
       <div className={`${css.wrapper}`}>
         <div className={css.header}>
-            <Link prefetch as="/" href="/local">
+            <Link  as="/" href="/local">
               <a>
                 <img
                   className={css.localLogo}

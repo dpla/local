@@ -34,7 +34,7 @@ class Navigation extends Component {
         return(
           <li key={navItem.id}>
             <Link
-              prefetch href={"/local/" + navItem.route}
+               href={"/local/" + navItem.route}
               as={navItem.route}>
               <a>{navItem.category}</a>
             </Link>
@@ -89,27 +89,27 @@ class Navigation extends Component {
           {contactHtml && contactHtml}
           {LOCALS[LOCAL_ID].hasTerms && (
             <li>
-              <Link prefetch href="/terms">
+              <Link  href="/terms">
                 <a>Terms and Conditions</a>
               </Link>
             </li>
           )}
           {LOCALS[LOCAL_ID].hasBrowseByPartner && (
             <li>
-              <Link prefetch href="/browse-by-partner">
+              <Link  href="/browse-by-partner">
                 <a>Browse by Partner</a>
               </Link>
             </li>
           )}
           {LOCALS[LOCAL_ID].hasBrowseAll && (
             <li>
-              <Link prefetch href="/search">
+              <Link  href="/search">
                 <a>Browse All</a>
               </Link>
             </li>
           )}
           <li>
-            <Link prefetch href="/lists">
+            <Link  href="/lists">
               <a>My Lists</a>
             </Link>
           </li>

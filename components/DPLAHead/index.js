@@ -9,8 +9,6 @@ import { LOCALS, LOCAL_ID } from "constants/local";
 // import utils from "stylesheets/utils.scss";
 // import accessibility from "stylesheets/accessibility.scss";
 
-const SITE_ENV = process.env.SITE_ENV
-
 const defaultDescription = LOCALS[LOCAL_ID].description;
 
 const defaultPageTitle = LOCALS[LOCAL_ID].name;
@@ -64,78 +62,35 @@ class DPLAHead extends React.Component {
           <meta name="og:title" content={pageTitle || defaultPageTitle} />
           <meta name="og:type" content={seoType || "website"} />
           <meta name="theme-color" content="#ffffff" />
-          {SITE_ENV !== "local" && [
             <link
               key="180"
               rel="apple-touch-icon"
               sizes="180x180"
-              href="/static/favicons/apple-touch-icon.png"
+              href={`/static/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
             />,
             <link
               key="32"
               rel="icon"
               type="image/png"
               sizes="32x32"
-              href="/static/favicons/favicon-32x32.png"
+              href={`/static/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
             />,
             <link
               key="16"
               rel="icon"
               type="image/png"
               sizes="16x16"
-              href="/static/favicons/favicon-16x16.png"
+              href={`/static/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
             />,
             <link
               key="mask"
               rel="mask-icon"
-              href="/static/favicons/safari-pinned-tab.svg"
-              color="#5bbad5"
-            />,
-            <link key="manifest" rel="manifest" href="/manifest.json" />
-          ]}
-          {SITE_ENV === "local" && [
-            <link
-              key="180"
-              rel="apple-touch-icon"
-              sizes="180x180"
-              href={`/static/local/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
-            />,
-            <link
-              key="32"
-              rel="icon"
-              type="image/png"
-              sizes="32x32"
-              href={`/static/local/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
-            />,
-            <link
-              key="16"
-              rel="icon"
-              type="image/png"
-              sizes="16x16"
-              href={`/static/local/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
-            />,
-            <link
-              key="mask"
-              rel="mask-icon"
-              href={`/static/local/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
+              href={`/static/${LOCAL_ID}/${LOCALS[LOCAL_ID].favicon}`}
               color="#ffffff"
             />,
-            <link key="manifest" rel="manifest" href="/manifest.json" />
-          ]}
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
+            {/* <link key="manifest" rel="manifest" href="/manifest.json" /> */}
           {additionalLinks}
           <title>{getMetaPageTitle(pageTitle)}</title>
-          <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,es6,EventSource,Object.values,Object.entries,Object.keys,Array.prototype.includes,Intl.~locale.en" />
-          <script src="/static/js/localforage.min.js" type="text/javascript" />
         </Head>
       </div>
     );

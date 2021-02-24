@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 class MainLayout extends React.Component {
   // Google Analytics tracking for MainLayout-using pages
   componentDidMount() {
-    Router.onRouteChangeComplete = url => this.trackPageview();
+    // Router.onRouteChangeComplete = url => this.trackPageview();
   }
 
   // trackPageview() {

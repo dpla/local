@@ -1,3 +1,5 @@
+@import "stylesheets/variables";
+
 .exhibit_title__section {
   display: flex;
   flex-direction: column;
@@ -37,21 +39,29 @@
 
 }
 
-/* Extra small devices (phones, 600px and down) */
-// @media only screen and (max-width: 600px) {...}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-// @media only screen and (min-width: 600px) {
-  
-// }
-
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and ($md-viewport) {
   .exhibit_title__section {
-    flex-direction: row-reverse;
+    flex-direction: column;
 
-    .exhibit_title__info {
-      width: 50%;
+    .exhibit_title__image { 
+      margin: auto;
+
+      img {
+        width: auto;      
+      }
+    }
+
+    .exhibit_title__info { 
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        padding: 1rem 0;
+        font-size: 1.5rem;
+      }
     }
   }
 }

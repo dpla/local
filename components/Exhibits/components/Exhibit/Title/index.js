@@ -11,7 +11,7 @@ const ExhibitTitle = ({title, description, credits, citation, banner}) => {
       <div className={scss.exhibit_title__info}>
         <h1>{title}</h1>
         {parse(description)}
-        {credits}
+        <p>{credits}</p>
         {parse(citation)}
       </div>
     </section>

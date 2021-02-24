@@ -142,3 +142,16 @@
   padding-top: 0.75rem;
   border-top: 0.075rem solid rgba(255, 255, 255, 0.5);
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and ($md-viewport) {
+  .menuButton {
+    width: 25%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {...}

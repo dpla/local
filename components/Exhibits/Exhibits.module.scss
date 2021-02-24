@@ -1,3 +1,5 @@
+@import "stylesheets/variables";
+
 .exhibits__section {
   height: 100%;
   width: 100%;
@@ -15,7 +17,30 @@
       max-width: 345px;
     }
   }
-
-
 }
 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and ($md-viewport) {
+  .exhibits__section {
+    
+    .exhibits__container {
+      width: 80%;
+
+      h1 {
+        padding: 2rem 0;
+        font-size: 2rem;
+      }
+  
+      .card {
+        max-width: inherit;
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {...}

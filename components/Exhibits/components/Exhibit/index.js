@@ -27,7 +27,7 @@ const Exhibit = ({ exhibit }) => {
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
               >
-                <Typography component="h2">Chapter {index + 1}: {chapter.title}</Typography>
+                <Typography component="h2" className={scss.exhibit__chapter}>Chapter {index + 1}: {chapter.title}</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Chapter chapter={chapter} index={index} key={`chapter-${index + 1}`} />

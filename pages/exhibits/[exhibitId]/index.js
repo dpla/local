@@ -2,7 +2,7 @@ import React from "react"
 import MainLayout from "components/MainLayout"
 import { exhibitExample } from "constants/exhibit"
 import DPLAHead from "components/DPLAHead";
-import Exhibit from "components/Exhibits/Exhibit"
+import Exhibit from "components/Exhibits/components/Exhibit"
 
 function ExhibitPage({ exhibit }) {
 
@@ -11,12 +11,12 @@ function ExhibitPage({ exhibit }) {
         className="main"
         role="main"
       >
-        {/* <DPLAHead 
-          pageTitle={`${exhibit['erie-canal'].title} | DPLA`}
+        <DPLAHead 
+          pageTitle={`${exhibit.title} | DPLA`}
           pageDescription={exhibit.description}
           pageImage={exhibit.banner}
           pageImageCaption={exhibit.caption}
-        /> */}
+        />
         <Exhibit exhibit={exhibit}/>
       </MainLayout>
   )
@@ -37,7 +37,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      exhibit: exhibit
+      exhibit: exhibit[params.exhibitId]
     }
   }
 }

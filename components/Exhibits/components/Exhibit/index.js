@@ -1,6 +1,6 @@
-import Title from "./components/Exhibit/Title"
-import Chapter from "./components/Exhibit/Chapter"
-import scss from "./Exhibits.module.scss"
+import Title from "./Title"
+import Chapter from "./Chapter"
+import scss from "./Exhibit.module.scss"
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -23,11 +23,9 @@ const Exhibit = ({ exhibit }) => {
       {exhibit.pages.map((chapter, index) => {
         return (
           <div key={`chapter-${index + 1}`}>
-            <Accordion>
+            <Accordion className={scss.exhibit__accordion}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
               >
                 <Typography component="h2">Chapter {index + 1}: {chapter.title}</Typography>
               </AccordionSummary>

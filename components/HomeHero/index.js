@@ -37,7 +37,7 @@ const HomeHero = ({ headerDescription, feature }) =>
       </form>
       {LOCALS[LOCAL_ID].hasAbout &&
         <div className={css.links}>
-          <Link prefetch href="/local/about" as="/about">
+          <Link  href="/local/about" as="/about">
             <a>Learn more about {LOCALS[LOCAL_ID].name}</a>
           </Link>
         </div>}

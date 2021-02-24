@@ -1,0 +1,13 @@
+.exhibit__section {
+  height: 100%;
+  width: 100%;
+  left: auto;
+  right: auto;
+  overflow: auto;
+
+  .exhibit__accordion {
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0%;
+  }
+}

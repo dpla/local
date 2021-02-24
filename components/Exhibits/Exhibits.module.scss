@@ -1,0 +1,21 @@
+.exhibits__section {
+  height: 100%;
+  width: 100%;
+  background-color: #FAF9F1;
+  display: flex;
+  justify-content: center;
+  min-height: 850px;
+  
+  .exhibits__container {
+    h1 {
+      padding: 1rem 0;
+    }
+
+    .card {
+      max-width: 345px;
+    }
+  }
+
+
+}
+

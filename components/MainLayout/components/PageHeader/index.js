@@ -9,7 +9,7 @@ const PageHeader = ({ searchQuery, router }) => {
   return (
     <div className={css.headerSearchBar}>
       <div className={`${css.flexWrapper} site-max-width`}>
-        <Link prefetch href="/local" as="/">
+        <Link  href="/local" as="/">
           <a className={`${css.logo} ${css.local}`} title="Home Page">
             <img
               className={css.localLogo}

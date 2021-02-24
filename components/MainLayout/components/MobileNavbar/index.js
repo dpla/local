@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import Navigation from "../shared/Navigation";
+import Navigation from "./Navigation"
 import css from "./SmallScreenStyles.module.scss";
-import { LOCALS } from "constants/local";
+import { LOCALS, LOCAL_ID } from "constants/local";
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
-const LOCAL_ID = process.env.LOCAL_ID
-
-class SmallScreenHeader extends Component {
+class MobileNavbar extends Component {
   state = {
     menuIsOpen: false,
     searchIsOpen: false
@@ -28,17 +28,16 @@ class SmallScreenHeader extends Component {
 
   render() {
     const { searchIsOpen, menuIsOpen } = this.state;
-    const { isSearchPage, route, isHome } = this.props;
 
     return (
       <div className={`${css.wrapper}`}>
-        {/* <div className={css.header}>
-            <Link prefetch as="/" href="/local">
+        <div className={css.header}>
+            <Link  as="/" href="/local">
               <a>
                 <img
                   className={css.localLogo}
                   alt={`${LOCALS[LOCAL_ID].name} Home`}
-                  src={`/static/local/${LOCALS[LOCAL_ID].theme}/${LOCALS[
+                  src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[
                     LOCAL_ID
                   ].logo}`}
                 />
@@ -50,8 +49,7 @@ class SmallScreenHeader extends Component {
             onClick={this.toggleMenu}
             className={`${css.menuButton} ${menuIsOpen ? css.isOpen : ""}`}
           >
-            {!menuIsOpen && <span>Show<br />Menu</span>}
-            {menuIsOpen && <span>Hide<br />Menu</span>}
+            {!menuIsOpen ? <MenuIcon /> : <CloseIcon />}
           </button>
         </div>
           <Navigation
@@ -59,11 +57,10 @@ class SmallScreenHeader extends Component {
               ? css.isOpen
               : ""} site-max-width`}
             css={css}
-            isHome={isHome}
-          /> */}
+          />
       </div>
     );
   }
 }
 
-export default SmallScreenHeader;
+export default MobileNavbar;

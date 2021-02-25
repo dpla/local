@@ -17,27 +17,32 @@ const Exhibits = () => {
     <section className={scss.exhibits__section}>
       <div className={scss.exhibits__container}>
         <h1>Exhibits</h1>
-
-        <Card className={scss.card}>
-          <CardActionArea>
-            <Link href="/exhibits/[exhibitId]" as={`exhibits/${exhibits.slug}`}>
-              <div>
-                <CardMedia
-                  component="img"
-                  alt={exhibits.caption}
-                  height="140"
-                  image={`${EXHIBITS_ENDPOINT}${exhibits.banner}`}
-                  title={exhibits.caption}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {exhibits.title}
-                  </Typography>
-                </CardContent>
-              </div>
-            </Link>
-          </CardActionArea>
-        </Card>
+        <div className={scss.exhibits__cards}>
+          {Object.keys(exhibitExample).map(function (key) {
+            return (
+              <Card className={scss.card}>
+                <CardActionArea>
+                  <Link href="/exhibits/[exhibitId]" as={`exhibits/${exhibitExample[key].slug}`}>
+                    <div>
+                      <CardMedia
+                        component="img"
+                        alt={exhibitExample[key].caption}
+                        height="140"
+                        image={`${EXHIBITS_ENDPOINT}${exhibitExample[key].banner}`}
+                        title={exhibitExample[key].caption}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {exhibitExample[key].title}
+                        </Typography>
+                      </CardContent>
+                    </div>
+                  </Link>
+                </CardActionArea>
+              </Card>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

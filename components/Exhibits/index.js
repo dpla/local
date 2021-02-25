@@ -9,10 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import Link from "next/link"
 
 const Exhibits = () => {
-  // this logic will have to be updated once more exhibits are available
-  // currently it's hardcoded to look at the one object in the json example
-  const exhibits = exhibitExample["erie-canal"]
-
   return (
     <section className={scss.exhibits__section}>
       <div className={scss.exhibits__container}>
@@ -20,6 +16,7 @@ const Exhibits = () => {
         <div className={scss.exhibits__cards}>
           {Object.keys(exhibitExample).map(function (key) {
             return (
+              <div key={`exhibit-${key}`}>
               <Card className={scss.card}>
                 <CardActionArea>
                   <Link href="/exhibits/[exhibitId]" as={`exhibits/${exhibitExample[key].slug}`}>
@@ -40,6 +37,7 @@ const Exhibits = () => {
                   </Link>
                 </CardActionArea>
               </Card>
+              </div>
             )
           })}
         </div>

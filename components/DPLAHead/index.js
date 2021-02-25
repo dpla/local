@@ -5,14 +5,6 @@ import { getMetaPageTitle, getCurrentFullUrl } from "lib";
 
 import { LOCALS, LOCAL_ID } from "constants/local";
 
-// import reset from "stylesheets/reset.scss";
-// import utils from "stylesheets/utils.scss";
-// import accessibility from "stylesheets/accessibility.scss";
-
-const defaultDescription = LOCALS[LOCAL_ID].description;
-
-const defaultPageTitle = LOCALS[LOCAL_ID].name;
-
 class DPLAHead extends React.Component {
   state = { defaultImageUrl: "" };
 
@@ -33,7 +25,9 @@ class DPLAHead extends React.Component {
       pageImageCaption,
       pageDescription
     } = this.props;
-
+    const defaultDescription = LOCALS[LOCAL_ID].description;
+    const defaultPageTitle = LOCALS[LOCAL_ID].name;
+    
     return (
       <div>
         <Head>
@@ -58,7 +52,7 @@ class DPLAHead extends React.Component {
           <meta name="twitter:image" content={pageImage || defaultImageUrl} />
           {pageImageCaption &&
             <meta name="twitter:image:alt" content={pageImageCaption} />}
-          <meta name="og:image" itemprop="image" content={pageImage || defaultImageUrl} />
+          <meta name="og:image" itemProp="image" content={pageImage || defaultImageUrl} />
           <meta name="og:title" content={pageTitle || defaultPageTitle} />
           <meta name="og:type" content={seoType || "website"} />
           <meta name="theme-color" content="#ffffff" />

@@ -15,6 +15,7 @@
 
     .card {
       max-width: 345px;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -40,7 +41,20 @@
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-// @media only screen and (min-width: 992px) {...}
+@media only screen and ($mdP-viewport) {
+  .exhibits__section {  
+    .exhibits__container {
+      .exhibits__cards {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .card {
+        max-width: 45%;
+      }
+    }
+  }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 // @media only screen and (min-width: 1200px) {...}

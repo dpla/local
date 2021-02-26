@@ -4,10 +4,10 @@ import scss from "./MediaBlock.module.scss"
 const MediaBlock = ({ data }) => {
   return (
     <section className={scss.media_block__section}>
-      {data.mime_type == 'image/jpeg' &&
+      {data.media_file.type == 'image/jpeg' &&
         <>
           <img src={data.url} />
-          <p>{parse(data.text)}</p>
+          <p>{parse(data.caption)}</p>
         </>
       }
     </section>

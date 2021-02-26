@@ -7,7 +7,7 @@ const MediaBlock = ({ data }) => {
       {data.media_file.type == 'image/jpeg' &&
         <>
           <img src={data.url} />
-          <p>{parse(data.caption)}</p>
+          {parse(data.caption)}
         </>
       }
     </section>

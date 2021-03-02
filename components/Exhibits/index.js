@@ -1,12 +1,13 @@
 import scss from "./Exhibits.module.scss"
 import { directusExhibit } from "constants/exhibit"
-import { EXHIBITS_ENDPOINT } from "constants/exhibits.js"
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Typography from '@material-ui/core/Typography'
 import Link from "next/link"
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY
+const DIRECTUS_ENDPOINT = process.env.NEXT_PUBLIC_DIRECTUS_ENDPOINT
 
 const Exhibits = () => {
   const exhibits = directusExhibit.data.items.exhibit
@@ -27,7 +28,8 @@ const Exhibits = () => {
                         component="img"
                         alt={exhibit.caption}
                         height="140"
-                        image={`${EXHIBITS_ENDPOINT}${exhibit.banner.filename_disk}`}
+                        image={`${DIRECTUS_ENDPOINT}${exhibit.banner.id}?asset_token=${API_KEY}`}
+                        onError={(e) => {e.target.src="https://via.placeholder.com/150"}}
                       />
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">

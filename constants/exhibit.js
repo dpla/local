@@ -1,5 +1,3 @@
-export const SEO_TYPE = "article";
-
 export const directusExhibit = {
   "data": {
     "items": {
@@ -12,11 +10,11 @@ export const directusExhibit = {
           "citation": "<p>Ziemer, Heidi, and Dan Ward. Two Hundred Years on the Erie Canal. Digital Public Library of America. January 2018. <a href='https://dp.la/exhibitions/erie-canal'>https://dp.la/exhibitions/erie-canal</a>.</p>",
           "banner": {
             "type": "image/jpeg",
-            "filename_disk": "046da73b-9f9d-4fb8-8c3e-d2dec37a581a.jpeg"
+            "id": "046da73b-9f9d-4fb8-8c3e-d2dec37a581a"
           },
           "thumbnail": {
             "type": "image/jpeg",
-            "filename_disk": "b943068c-8826-4204-ba16-ebd8a0f4a890.jpeg"
+            "id": "b943068c-8826-4204-ba16-ebd8a0f4a890"
           },
           "caption": "<p>This is a section of a seventeen-foot mural of the opening of the Erie Canal in October 1825 painted by Raphael Beck of Lockport, New York in 1927. Courtesy of Niagara County Historical Society via Western New York Library Resources Council and Empire State Digital Network.</p>",
           "pages": [
@@ -42,7 +40,7 @@ export const directusExhibit = {
                     "dpla_id": "3b5c575778310ada597c936e43746f99",
                     "media_file": {
                       "type": "image/jpeg",
-                      "filename_disk": "3889150c-d3c6-4959-9bea-6b3d61252770.jpeg"
+                      "id": "3889150c-d3c6-4959-9bea-6b3d61252770"
                     }
                   }
                 },
@@ -55,7 +53,7 @@ export const directusExhibit = {
                     "dpla_id": "668d9e6f8cd6d083668b09b95366d9f6",
                     "media_file": {
                       "type": "application/pdf",
-                      "filename_disk": "f469585d-02bc-4ff5-80e5-42e78f181c8d.pdf"
+                      "id": "f469585d-02bc-4ff5-80e5-42e78f181c8d"
                     }
                   }
                 }
@@ -83,7 +81,7 @@ export const directusExhibit = {
                     "dpla_id": "f9f1d86437d2f7f3e859fe21a2c9f5c0",
                     "media_file": {
                       "type": "image/jpeg",
-                      "filename_disk": "724b06ce-e5f3-4f6a-9c57-66477a17da42.jpeg"
+                      "id": "724b06ce-e5f3-4f6a-9c57-66477a17da42"
                     }
                   }
                 }

@@ -23,8 +23,7 @@ const Exhibit = ({ exhibit }) => {
         description={exhibit.description}
         credits={exhibit.credits}
         citation={exhibit.citation}
-        thumbnail={exhibit.thumbnail}
-        banner={exhibit.banner}
+        // banner={exhibit.banner}
         caption={exhibit.caption}
       />
 

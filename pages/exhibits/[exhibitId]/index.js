@@ -1,6 +1,6 @@
 import React from "react"
 import MainLayout from "components/MainLayout"
-import { exhibitExample } from "constants/exhibit"
+import { exhibitExample, directusExhibit } from "constants/exhibit"
 import DPLAHead from "components/DPLAHead";
 import Exhibit from "components/Exhibits/components/Exhibit"
 
@@ -24,20 +24,20 @@ function ExhibitPage({ exhibit }) {
 
 export async function getStaticPaths() {
 
-  const paths = Object.keys(exhibitExample).map((key) => ({
-    params: { exhibitId: key },
+  const paths = directusExhibit.data.items.exhibit.map(exhibit => ({
+    params: { exhibitId: exhibit.slug },
   }))
 
   return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
-  let exhibit = exhibitExample;
+  let exhibit = directusExhibit.data.items.exhibit;
   exhibit["exhibitId"] = params.exhibitId
 
   return {
     props: {
-      exhibit: exhibit[params.exhibitId]
+      exhibit: exhibit[0]
     }
   }
 }

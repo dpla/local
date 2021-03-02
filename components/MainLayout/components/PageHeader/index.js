@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 import css from "./PageHeader.module.scss";
 

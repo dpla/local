@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Link from "next/link";
 import Navigation from "./Navigation"
 import css from "./SmallScreenStyles.module.scss";
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 class MobileNavbar extends Component {
   state = {

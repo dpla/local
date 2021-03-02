@@ -1,8 +1,9 @@
 import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
 import Exhibits from "components/Exhibits"
 import DPLAHead from "components/DPLAHead";
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 const ExhibitsPage = ({ router }) => {
   const local = LOCALS[LOCAL_ID]

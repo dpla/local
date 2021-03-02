@@ -1,19 +1,17 @@
-export const LOCAL_ID="LOCAL_ID"
-
 export const LOCALS = {
-  plains2peaks: {
-    theme: "plains2peaks",
+  localName: {
+    theme: "localName",
     filters: [
-      "provider.@id:http%3A//dp.la/api/contributor/wisconsin"
+      "provider.@id:http%3A//dp.la/api/contributor/"
     ],
-    provider: "%22Plains%20to%20Peaks%20Collective%22",
+    provider: "%22local%20Name%22",
     background: "home-hero-bg.jpg",
-    name: "Plains to Peaks Collective",
+    name: "localName",
     favicon: "favicon.png",
     logo: "logo.png",
     description: "",
-    locationFacet: "%22Colorado%20OR%20Wyoming%22",
-    subjectFacet: "%22Colorado%20OR%20Wyoming%22",
+    locationFacet: "%22Location%22",
+    subjectFacet: "%22Location%22",
     hasAbout: true,
     hasTerms: false,
     hasContact: true,

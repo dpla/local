@@ -1,8 +1,8 @@
 import React from "react";
 import css from "./Footer.module.scss";
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
 import Link from "next/link";
-
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 const logo = "/static/images/dpla-logo.svg";
 
 const Footer = () => {

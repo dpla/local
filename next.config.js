@@ -4,6 +4,6 @@ module.exports = {
 
   experimental: { scss: true },
   sassOptions: {
-    includePaths: [`./stylesheets/themes/${process.env.REACT_APP_LOCAL_ID}`]
+    includePaths: [`./stylesheets/themes/${process.env.NEXT_PUBLIC_LOCAL_ID}`]
   }
 }

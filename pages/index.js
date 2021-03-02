@@ -5,7 +5,7 @@ import MainLayout from "components/MainLayout";
 import HomeHero from "components/HomeHero";
 import Vermont from "components/Vermont"
 import Florida from "components/Florida"
-import { LOCAL_ID } from "constants/local";
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 const components = {
   vermont: Vermont,

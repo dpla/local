@@ -1,7 +1,8 @@
 import React from "react";
 import css from "../shared/DesktopStyles.module.scss";
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
 import Link from "next/link"
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 const Navbar = ({classname, style}) => {
   let local = LOCALS[LOCAL_ID];

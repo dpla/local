@@ -1,5 +1,3 @@
-export const LOCAL_ID="LOCAL_ID"
-
 export const LOCALS = {
   localName: {
     theme: "localName",

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Link from "next/link";
 
-import { LOCALS, LOCAL_ID } from "constants/local";
+import { LOCALS } from "constants/local";
 import * as PropTypes from "prop-types";
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 class Navigation extends Component {
   render() {

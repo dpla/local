@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { LOCALS, LOCAL_ID } from "constants/local"
+import { LOCALS } from "constants/local"
 import css from "./HomeHero.module.scss"
+const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 const HomeHero = ({ headerDescription, feature }) => {
   const bgImage = `/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID].background}`;

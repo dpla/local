@@ -1,10 +1,104 @@
-export const SEO_TYPE = "article";
+export const directusExhibit = {
+  "data": {
+    "items": {
+      "exhibit": [
+        {
+          "slug": "erie-canal",
+          "title": "Two Hundred Years on the Erie Canal",
+          "description": "<p><em>In estimating the benefits of those immense public works, that will change the internal relations of a great country, and create a new era in the history of her trade, agriculture and manufactures, much must be left for time and experience to reveal\u2026</em></p><p>u2014New York Corresponding Association for the Promotion of Internal Improvements, 1821</p><p><span>The Erie Canal is one of the most famous man-made bodies of water in the world. Designed, financed, built, operated, and maintained by the people of New York, the canal was one of the largest public works projects ever attempted anywhere in the world when the first shovel of earth was turned near Rome, New York, on July 4, 1817. Men with talent and vision (but little training in engineering) charted the 363-mile course of the canal between Albany and Buffalo. They designed stone aqueducts to carry boats across rivers and locks to lift them over New Yorku2019s varied terrain. Thousands of laborers dug the ditch itself and built massive reservoirs to ensure the canal was constantly supplied with water. When it was completed in 1825, the Erie Canal connected the port of New York City on the Atlantic Ocean with the Great Lakes, dramatically transforming trade, industry, and communication in the region and across the country.</span></p><p><span>The Erie Canal was so successful that it was enlarged three times to accommodate more traffic and increasingly larger vessels. Great cities and commerce grew along the Erie Canal. Diverse people traveled east and west across its length, some spreading powerful ideas for social change. In the mid-twentieth century, canal traffic began to decline, and the famous waterway momentarily faded from public use, only to reemerge today as a vehicle for heritage tourism, recreation, and education.</span></p>",
+          "credits": "<p>This exhibition was curated by Heidi Ziemer and Dan Ward of Western New York Library Resources Council, in partnership with Empire State Digital Network with funding from Humanities New York. Exhibition materials contributed by Empire State Digital Network, The New York Public Library, David Rumsey, Digital Commonwealth, HathiTrust, Illinois Digital Heritage Hub, Indiana Memory, Library of Congress, Minnesota Digital Library, Missouri Hub, Mountain West Digital Library, Recollection Wisconsin, and Smithsonian Institution.<br />&nbsp;</p>",
+          "citation": "<p>Ziemer, Heidi, and Dan Ward. Two Hundred Years on the Erie Canal. Digital Public Library of America. January 2018. <a href='https://dp.la/exhibitions/erie-canal'>https://dp.la/exhibitions/erie-canal</a>.</p>",
+          "banner": {
+            "type": "image/jpeg",
+            "id": "046da73b-9f9d-4fb8-8c3e-d2dec37a581a"
+          },
+          "thumbnail": {
+            "type": "image/jpeg",
+            "id": "b943068c-8826-4204-ba16-ebd8a0f4a890"
+          },
+          "caption": "<p>This is a section of a seventeen-foot mural of the opening of the Erie Canal in October 1825 painted by Raphael Beck of Lockport, New York in 1927. Courtesy of Niagara County Historical Society via Western New York Library Resources Council and Empire State Digital Network.</p>",
+          "pages": [
+            {
+              "slug": "why-new-york",
+              "title": "Why New York",
+              "blocks": [
+                {
+                  "__typename": "page_blocks",
+                  "item": {
+                    "slug": "introduction",
+                    "layout": "text",
+                    "headline": "Introduction",
+                    "text": "<p><h4>Access to the Interior</h4><p>Until the construction of the Erie Canal, New Orleans had nearly exclusive access to trade with the rich interior of North America because of its location on the Mississippi River. Beginning in the seventeenth century during French, Dutch, and then British competition for the fur trade in North America, people realized that New York City, with its deep and protected harbor and access to the interior via the Hudson River, was strategically situated for trade with Europe. As early as 1724, Cadwallader Colden, surveyor general and later colonial governor of the Province of New York, prepared a report for the governor describing the natural 'water courses and carrying places' (portages) between Albany and Montreal, Canada, and between Albany and Cataraqui Lake, now known as Lake Ontario. It took another one hundred years before the New York Corresponding Association for the Promotion of Internal Improvements was organized to advance support for building a canal across New York State&mdash;a project they envisioned as the starting point for a cross-country navigation system of waterways bridging Lake Erie with the Atlantic Ocean, the Mississippi River, and the western states of Michigan and Illinois.</p></p>"
+                  }
+                },
+                {
+                  "__typename": "page_blocks",
+                  "item": {
+                    "slug": "castello-plan",
+                    "layout": "media",
+                    "caption": "<p>This is a redraft of the Castello Plan, one of the earliest city maps of lower Manhattan, New York, originally drafted by Jacques Cortelyou around 1660. Courtesy of The New York Public Library.</p>",
+                    "dpla_id": "3b5c575778310ada597c936e43746f99",
+                    "media_file": {
+                      "type": "image/jpeg",
+                      "id": "3889150c-d3c6-4959-9bea-6b3d61252770"
+                    }
+                  }
+                },
+                {
+                  "__typename": "page_blocks",
+                  "item": {
+                    "slug": "excerpts",
+                    "layout": "media",
+                    "caption": "<p>This is an excerpt from an 1821 publication of the New York Corresponding Association for the Promotion of Internal Improvements, which provided the impetus for exploring a canal route connecting the western and northern lakes with the Atlantic Ocean. Courtesy of University of Minnesota via HathiTrust.</p>",
+                    "dpla_id": "668d9e6f8cd6d083668b09b95366d9f6",
+                    "media_file": {
+                      "type": "application/pdf",
+                      "id": "f469585d-02bc-4ff5-80e5-42e78f181c8d"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "slug": "plans-early-concepts",
+              "title": "Plans and Early Concepts",
+              "blocks": [
+                {
+                  "__typename": "page_blocks",
+                  "item": {
+                    "slug": "introduction",
+                    "layout": "text",
+                    "headline": "Introduction",
+                    "text": "<p><h4>The Canal Era Begins</h4><p>Two Inland Lock Navigation Companies, Western and Northern, were chartered by the New York State Legislature in 1792, moving the Erie Canal project closer to becoming reality. Their goal was to open up westward inland transportation routes to the Great Lakes from Schenectady, and particularly to improve transportation for agricultural products from central and upstate New York.</p><p>The Western Inland Lock Navigation Company, led by political leader Philip Schuyler, focused on making the Mohawk River more navigable by clearing the riverbed and building a small canal and lock system to bypass the Mohawk River&rsquo;s falls and rapids.</p><p>In a 1796 report to the New York legislature, the directors of the lock navigation companies reported on the progress of their canal construction along the Mohawk River and predicted the impact of continued canal-building for the state:</p><blockquote>The Legislature will permit us respectfully to observe, that should assistance be afforded in either shape, the prospect of a speedy reduction of the price of transportation, would doubtless greatly enhance the value of the property of the people of this state, bordering on the western waters, and recently purchased from the natives, and still unsold.</blockquote><p>Unfortunately, both companies had great difficulty in getting either government or public support for financing and constructing a canal route of any substance.</p></p>"
+                  }
+                },
+                {
+                  "__typename": "page_blocks",
+                  "item": {
+                    "slug": "stone-lock",
+                    "layout": "media",
+                    "caption": "<p>This photograph shows a stone lock on the Mohawk River built about 1800 by the Western Inland Lock Navigation Company in Little Falls, Herkimer County, New York. The Western Inland Lock Navigation Company originally constructed locks from timber but, in 1803, began replacing the leaking locks with stone from local quarries. Courtesy of New York State Archives via Empire State Digital Network.</p>",
+                    "dpla_id": "f9f1d86437d2f7f3e859fe21a2c9f5c0",
+                    "media_file": {
+                      "type": "image/jpeg",
+                      "id": "724b06ce-e5f3-4f6a-9c57-66477a17da42"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
 
 export const exhibitExample = {
   "erie-canal": {
     "slug": "erie-canal",
     "title": "Two Hundred Years on the Erie Canal",
-    "description": "<p><em>In estimating the benefits of those immense public works, that will change the internal relations of a great country, and create a new era in the history of her trade, agriculture and manufactures, much must be left for time and experience to reveal\u2026<\/em><\/p>\n<p>\u2014New York Corresponding Association for the Promotion of Internal Improvements, 1821<\/p>\n<p><span>The Erie Canal is one of the most famous man-made bodies of water in the world. Designed, financed, built, operated, and maintained by the people of New York, the canal was one of the largest public works projects ever attempted anywhere in the world when the first shovel of earth was turned near Rome, New York, on July 4, 1817. Men with talent and vision (but little training in engineering) charted the 363-mile course of the canal between Albany and Buffalo. They designed stone aqueducts to carry boats across rivers and locks to lift them over New York\u2019s varied terrain. Thousands of laborers dug the ditch itself and built massive reservoirs to ensure the canal was constantly supplied with water. When it was completed in 1825, the Erie Canal connected the port of New York City on the Atlantic Ocean with the Great Lakes, dramatically transforming trade, industry, and communication in the region and across the country.<\/span><\/p>\n<p><span>The Erie Canal was so successful that it was enlarged three times to accommodate more traffic and increasingly larger vessels. Great cities and commerce grew along the Erie Canal. Diverse people traveled east and west across its length, some spreading powerful ideas for social change. In the mid-twentieth century, canal traffic began to decline, and the famous waterway momentarily faded from public use, only to reemerge today as a vehicle for heritage tourism, recreation, and education.<\/span><\/p>",
+    "description": "<p><em>In estimating the benefits of those immense public works, that will change the internal relations of a great country, and create a new era in the history of her trade, agriculture and manufactures, much must be left for time and experience to reveal\u2026</em></p><p>\u2014New York Corresponding Association for the Promotion of Internal Improvements, 1821</p><p><span>The Erie Canal is one of the most famous man-made bodies of water in the world. Designed, financed, built, operated, and maintained by the people of New York, the canal was one of the largest public works projects ever attempted anywhere in the world when the first shovel of earth was turned near Rome, New York, on July 4, 1817. Men with talent and vision (but little training in engineering) charted the 363-mile course of the canal between Albany and Buffalo. They designed stone aqueducts to carry boats across rivers and locks to lift them over New York\u2019s varied terrain. Thousands of laborers dug the ditch itself and built massive reservoirs to ensure the canal was constantly supplied with water. When it was completed in 1825, the Erie Canal connected the port of New York City on the Atlantic Ocean with the Great Lakes, dramatically transforming trade, industry, and communication in the region and across the country.</span></p><p><span>The Erie Canal was so successful that it was enlarged three times to accommodate more traffic and increasingly larger vessels. Great cities and commerce grew along the Erie Canal. Diverse people traveled east and west across its length, some spreading powerful ideas for social change. In the mid-twentieth century, canal traffic began to decline, and the famous waterway momentarily faded from public use, only to reemerge today as a vehicle for heritage tourism, recreation, and education.</span></p>",
     "credits": "This exhibit was curated by Heidi Ziemer and Dan Ward of Western New York Library Resources Council, in partnership with Empire State Digital Network with funding from Humanities New York. Exhibit materials contributed by Empire State Digital Network, The New York Public Library, David Rumsey, Digital Commonwealth, HathiTrust, Illinois Digital Heritage Hub, Indiana Memory, Library of Congress, Minnesota Digital Library, Missouri Hub, Mountain West Digital Library, Recollection Wisconsin, and Smithsonian Institution.",
     "citation": "<p>Ziemer, Heidi, and Dan Ward. Two Hundred Years on the Erie Canal. Digital Public Library of America. January 2018. <a href=\"https://dp.la/exhibitions/erie-canal\">https://dp.la/exhibitions/erie-canal</a>.</p>",
     "thumbnail" : "square_thumbnails/7ba358b497a987fd2f3254346c42564d.jpg",
@@ -204,7 +298,7 @@ export const exhibitExample = {
   "erie-canal-2": {
     "slug": "erie-canal",
     "title": "Two Hundred Years on the Erie Canal",
-    "description": "<p><em>In estimating the benefits of those immense public works, that will change the internal relations of a great country, and create a new era in the history of her trade, agriculture and manufactures, much must be left for time and experience to reveal\u2026<\/em><\/p>\n<p>\u2014New York Corresponding Association for the Promotion of Internal Improvements, 1821<\/p>\n<p><span>The Erie Canal is one of the most famous man-made bodies of water in the world. Designed, financed, built, operated, and maintained by the people of New York, the canal was one of the largest public works projects ever attempted anywhere in the world when the first shovel of earth was turned near Rome, New York, on July 4, 1817. Men with talent and vision (but little training in engineering) charted the 363-mile course of the canal between Albany and Buffalo. They designed stone aqueducts to carry boats across rivers and locks to lift them over New York\u2019s varied terrain. Thousands of laborers dug the ditch itself and built massive reservoirs to ensure the canal was constantly supplied with water. When it was completed in 1825, the Erie Canal connected the port of New York City on the Atlantic Ocean with the Great Lakes, dramatically transforming trade, industry, and communication in the region and across the country.<\/span><\/p>\n<p><span>The Erie Canal was so successful that it was enlarged three times to accommodate more traffic and increasingly larger vessels. Great cities and commerce grew along the Erie Canal. Diverse people traveled east and west across its length, some spreading powerful ideas for social change. In the mid-twentieth century, canal traffic began to decline, and the famous waterway momentarily faded from public use, only to reemerge today as a vehicle for heritage tourism, recreation, and education.<\/span><\/p>",
+    "description": "<p><em>In estimating the benefits of those immense public works, that will change the internal relations of a great country, and create a new era in the history of her trade, agriculture and manufactures, much must be left for time and experience to reveal\u2026</em></p><p>\u2014New York Corresponding Association for the Promotion of Internal Improvements, 1821</p><p><span>The Erie Canal is one of the most famous man-made bodies of water in the world. Designed, financed, built, operated, and maintained by the people of New York, the canal was one of the largest public works projects ever attempted anywhere in the world when the first shovel of earth was turned near Rome, New York, on July 4, 1817. Men with talent and vision (but little training in engineering) charted the 363-mile course of the canal between Albany and Buffalo. They designed stone aqueducts to carry boats across rivers and locks to lift them over New York\u2019s varied terrain. Thousands of laborers dug the ditch itself and built massive reservoirs to ensure the canal was constantly supplied with water. When it was completed in 1825, the Erie Canal connected the port of New York City on the Atlantic Ocean with the Great Lakes, dramatically transforming trade, industry, and communication in the region and across the country.</span></p><p><span>The Erie Canal was so successful that it was enlarged three times to accommodate more traffic and increasingly larger vessels. Great cities and commerce grew along the Erie Canal. Diverse people traveled east and west across its length, some spreading powerful ideas for social change. In the mid-twentieth century, canal traffic began to decline, and the famous waterway momentarily faded from public use, only to reemerge today as a vehicle for heritage tourism, recreation, and education.</span></p>",
     "credits": "This exhibit was curated by Heidi Ziemer and Dan Ward of Western New York Library Resources Council, in partnership with Empire State Digital Network with funding from Humanities New York. Exhibit materials contributed by Empire State Digital Network, The New York Public Library, David Rumsey, Digital Commonwealth, HathiTrust, Illinois Digital Heritage Hub, Indiana Memory, Library of Congress, Minnesota Digital Library, Missouri Hub, Mountain West Digital Library, Recollection Wisconsin, and Smithsonian Institution.",
     "citation": "<p>Ziemer, Heidi, and Dan Ward. Two Hundred Years on the Erie Canal. Digital Public Library of America. January 2018. <a href=\"https://dp.la/exhibitions/erie-canal\">https://dp.la/exhibitions/erie-canal</a>.</p>",
     "thumbnail" : "square_thumbnails/7ba358b497a987fd2f3254346c42564d.jpg",
@@ -219,7 +313,7 @@ export const exhibitExample = {
             "slug": "introduction",
             "layout": "text",
             "headline": "Introduction",
-            "text": "<h4>Access to the Interior</h4><p>Until the construction of the Erie Canal, New Orleans had nearly exclusive access to trade with the rich interior of North America because of its location on the Mississippi River. Beginning in the seventeenth century during French, Dutch, and then British competition for the fur trade in North America, people realized that New York City, with its deep and protected harbor and access to the interior via the Hudson River, was strategically situated for trade with Europe. As early as 1724, Cadwallader Colden, surveyor general and later colonial governor of the Province of New York, prepared a report for the governor describing the natural \"water courses and carrying places\" (portages) between Albany and Montreal, Canada, and between Albany and Cataraqui Lake, now known as Lake Ontario. It took another one hundred years before the New York Corresponding Association for the Promotion of Internal Improvements was organized to advance support for building a canal across New York State—a project they envisioned as the starting point for a cross-country navigation system of waterways bridging Lake Erie with the Atlantic Ocean, the Mississippi River, and the western states of Michigan and Illinois.</p>"
+            "text": "<h4>Access to the Interior</h4><p>Until the construction of the Erie Canal, New Orleans had nearly exclusive access to trade with the rich interior of North America because of its location on the Mississippi River. Beginning in the seventeenth century during French, Dutch, and then British competition for the fur trade in North America, people realized that New York City, with its deep and protected harbor and access to the interior via the Hudson River, was strategically situated for trade with Europe. As early as 1724, Cadwallader Colden, surveyor general and later colonial governor of the Province of New York, prepared a report for the governor describing the natural 'water courses and carrying places' (portages) between Albany and Montreal, Canada, and between Albany and Cataraqui Lake, now known as Lake Ontario. It took another one hundred years before the New York Corresponding Association for the Promotion of Internal Improvements was organized to advance support for building a canal across New York State—a project they envisioned as the starting point for a cross-country navigation system of waterways bridging Lake Erie with the Atlantic Ocean, the Mississippi River, and the western states of Michigan and Illinois.</p>"
           },
           {
             "slug": "castello-plan",

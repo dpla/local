@@ -114,12 +114,8 @@ const getItemCount = (results) => {
     return itemCount;
 };
 
-Search.getInitialProps = async context => {
-  const query = context.query;
-  const req = context.req;
+Search.getInitialProps = async ({ query, req }) => {
   let local = LOCALS[LOCAL_ID];
-  // const isQA = parseCookies(context).hasOwnProperty("qa");
-  // const isQA = parseCookies(context).hasOwnProperty("qa");
   const currentUrl = getCurrentUrl(req);
   const q = query.q
     ? encodeURIComponent(query.q.trim())
@@ -135,8 +131,6 @@ Search.getInitialProps = async context => {
   }
 
   let hasDates = false;
-  const theseFacets = possibleFacets;
-
   const queryArray = possibleFacets
     .map(facet => {
       if (facet.indexOf("sourceResource.date") !== -1 && !hasDates) {
@@ -174,12 +168,7 @@ Search.getInitialProps = async context => {
 
   const facetQueries = queryArray.join("&");
 
-  let sort_by = "";
-  if (query.sort_by === "title") {
-    sort_by = "sourceResource.title";
-  } else if (query.sort_by === "created") {
-    sort_by = "sourceResource.date.begin";
-  }
+  const sort_by = query.sort_by || "dataProvider";
   const sort_order = query.sort_order || "";
 
   let page_size = query.page_size || DEFAULT_PAGE_SIZE;
@@ -223,9 +212,8 @@ Search.getInitialProps = async context => {
       .split(/(&|\+AND\+)/)
       .filter(facet => facet && facet !== "+AND+" && facet !== "&").length;
 
-    const facetsParam = `&facets=${theseFacets.join(",")}&${facetQueries}`;
-    const filtersParam = filters.map(x => `&filter=${x}`).join("");
-    const url = `${currentUrl}/api/search?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}${filtersParam}`;
+    const facetsParam = `&facets=${possibleFacets.join(",")}&${facetQueries}`;
+    const url = `${currentUrl}/api/search?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}`;
     const res = await fetch(url);
 
     // api response for facets
@@ -244,7 +232,7 @@ Search.getInitialProps = async context => {
 
     // fix facets because ES no longer returns them in the requested order
     let newFacets = {};
-    theseFacets.forEach(facet => {
+    possibleFacets.forEach(facet => {
       if (json.facets[facet]) newFacets[facet] = json.facets[facet];
     });
 

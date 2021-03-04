@@ -2,9 +2,6 @@ import MainLayout from "components/MainLayout";
 import FeatureHeader from "shared/FeatureHeader";
 import BrowseByPartner from "components/BrowseByPartner";
 import { getCurrentUrl } from "lib";
-import { LOCALS } from "constants/local";
-const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
-
 import scss from "components/BrowseByPartner/BrowseByPartner.module.scss";
 
 const PartnerBrowse = ({ partners, url }) =>

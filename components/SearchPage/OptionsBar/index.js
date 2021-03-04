@@ -11,12 +11,9 @@ import {
   DEFAULT_PAGE_SIZE
 } from "constants/search";
 
-import css from "./OptionsBar.module.scss";
-
-const gridViewIcon = "/static/icon/search/icon-search-view-grid-selected.svg";
-const inactiveGridViewIcon = "/static/icon/search/icon-search-view-grid-inactive.svg";
-const listViewIcon = "/static/icon/search/icon-search-view-list-selected.svg";
-const inactiveListViewIcon = "/static/icon/search/icon-search-view-list-inactive.svg";
+import scss from "./OptionsBar.module.scss";
+import GridIcon from '@material-ui/icons/GridOn'
+import ListIcon from '@material-ui/icons/List'
 
 class OptionsBar extends React.Component {
   componentWillMount() {
@@ -86,13 +83,13 @@ class OptionsBar extends React.Component {
     } = this.props;
     return (
       <>
-        <div className={css.wrapper}>
-          <div className={css.optionsBar + ``}>
-            <div className={css.resultsAndFilter}>
-              <div className={css.optionWrapper}>
+        <div className={scss.wrapper}>
+          <div className={scss.optionsBar + ``}>
+            <div className={scss.resultsAndFilter}>
+              <div className={scss.optionWrapper}>
                 <label
                   htmlFor="options-bar-page-size"
-                  className={css.optionHeader}
+                  className={scss.optionHeader}
                 >
                   Show:
                 </label>
@@ -108,14 +105,14 @@ class OptionsBar extends React.Component {
                   )}
                 </select>
               </div>
-              <h1 className={css.resultsCount}>
+              <h1 className={scss.resultsCount}>
                 <span>
                   of {addCommasToNumber(this.props.itemCount)} results{" "}
                 </span>
                 {this.props.route.query.q &&
-                  <span className={css.resultsCountQuery}>
+                  <span className={scss.resultsCountQuery}>
                     <span>for </span>
-                    <span className={css.resultsCountQueryText}>
+                    <span className={scss.resultsCountQueryText}>
                       {this.props.route.query.q}
                     </span>
                   </span>}
@@ -125,25 +122,25 @@ class OptionsBar extends React.Component {
               <button
                 onClick={() => onClickToggleFilters()}
                 aria-expanded={showFilters}
-                className={`${css.toggleFilters} ${showFilters
-                  ? css.showFilters
+                className={`${scss.toggleFilters} ${showFilters
+                  ? scss.showFilters
                   : ""} ${numberOfActiveFacets !== 0
-                    ? css.withActiveFacets
+                    ? scss.withActiveFacets
                     : ""}`}
               >
                 <span>Filters</span>
                 {numberOfActiveFacets !== 0 &&
-                  <span className={css.activeFacetCount}>
+                  <span className={scss.activeFacetCount}>
                     ({numberOfActiveFacets})
                 </span>}
-                <img className={css.filtersButtonChevron} src="static/icon/search/icon-search-dropdown.svg"
+                <img className={scss.filtersButtonChevron} src="static/icon/search/icon-search-dropdown.svg"
                   alt="Dropdown menu icon" />
               </button>
             </div>
 
-            <div className={css.options}>
-              <div className={css.optionWrapper}>
-                <label htmlFor="options-bar-sort-by" className={css.optionHeader}>
+            <div className={scss.options}>
+              <div className={scss.optionWrapper}>
+                <label htmlFor="options-bar-sort-by" className={scss.optionHeader}>
                   Sort
                 </label>
                 <select
@@ -158,8 +155,8 @@ class OptionsBar extends React.Component {
                   )}
                 </select>
               </div>
-              <div className={css.optionWrapper}>
-                <div className={css.viewButtons}>
+              <div className={scss.optionWrapper}>
+                <div className={scss.viewButtons}>
                   <Link
                     href={{
                       pathname: this.props.route.pathname,
@@ -170,17 +167,13 @@ class OptionsBar extends React.Component {
                   >
                     <a
                       className={[
-                        css.listViewButton,
+                        scss.listViewButton,
                         this.props.route.query.list_view === "grid"
-                          ? css.viewButtonInactive
-                          : css.viewButtonActive
+                          ? scss.viewButtonInactive
+                          : scss.viewButtonActive
                       ].join(" ")}
                     >
-                      <img
-                        className={css.viewButtonIcon}
-                        src={this.props.route.query.list_view === "grid" ? inactiveListViewIcon : listViewIcon}
-                        alt="List View"
-                      />
+                      <ListIcon className={scss.viewButtonIcon} />
                     </a>
                   </Link>
                   <Link
@@ -193,17 +186,13 @@ class OptionsBar extends React.Component {
                   >
                     <a
                       className={[
-                        css.gridViewButton,
+                        scss.gridViewButton,
                         this.props.route.query.list_view === "grid"
-                          ? css.viewButtonActive
-                          : css.viewButtonInactive
+                          ? scss.viewButtonActive
+                          : scss.viewButtonInactive
                       ].join(" ")}
                     >
-                      <img
-                        className={css.viewButtonIcon}
-                        src={this.props.route.query.list_view === "grid" ? gridViewIcon : inactiveGridViewIcon}
-                        alt="Grid View"
-                      />
+                      <GridIcon className={scss.viewButtonIcon} />
                     </a>
                   </Link>
                 </div>
@@ -211,7 +200,7 @@ class OptionsBar extends React.Component {
             </div>
           </div>
         </div>
-        <p className={css.pageNumber}>Page {currentPage}</p>
+        <p className={scss.pageNumber}>Page {currentPage}</p>
       </>
     );
   }

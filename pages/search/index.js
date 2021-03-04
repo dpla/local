@@ -22,9 +22,7 @@ import {
     splitAndURIEncodeFacet
 } from "constants/search";
 
-import {
-    LOCALS
-} from "constants/local-data";
+import { LOCALS } from "constants/local-data";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 class Search extends React.Component {
@@ -168,7 +166,7 @@ Search.getInitialProps = async ({ query, req }) => {
 
   const facetQueries = queryArray.join("&");
 
-  const sort_by = query.sort_by || "dataProvider";
+  const sort_by = query.sort_by || "";
   const sort_order = query.sort_order || "";
 
   let page_size = query.page_size || DEFAULT_PAGE_SIZE;

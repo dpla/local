@@ -15,7 +15,7 @@ export default (req, res) => {
   const query = req.query
   const filtersParam = LOCALS[LOCAL_ID].filters.map(x => `&filter=${x}`).join("");
   
-  fetch(`http://api.dp.la/v2/items?exact_field_match=${query.exact_field_match}&q=${query.q}&page=${query.page}&page_size=${query.page_size}&sort_order=${query.sort_order}&sort_by=${query.sort_by}${filtersParam}&api_key=${API_KEY}`)
+  fetch(`http://api.dp.la/v2/items?exact_field_match=${query.exact_field_match}&q=${query.q}&page=${query.page}&page_size=${query.page_size}&sort_order=${query.sort_order}&sort_by=${query.sort_by}&${query.facetsParam}${filtersParam}&api_key=${API_KEY}`)
     .then(data => data.json())
     .then(results => {
       res.status(200).json(results)

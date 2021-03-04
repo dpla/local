@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { getMetaPageTitle, getCurrentFullUrl } from "lib";
 
-import { LOCALS } from "constants/local";
+import { LOCALS } from "constants/local-data";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 class DPLAHead extends React.Component {

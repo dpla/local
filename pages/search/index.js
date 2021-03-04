@@ -24,7 +24,7 @@ import {
 
 import {
     LOCALS
-} from "constants/LOCAL";
+} from "constants/local-data";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
 class Search extends React.Component {

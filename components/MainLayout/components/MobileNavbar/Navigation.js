@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 
-import { LOCALS } from "constants/local";
+import { LOCALS } from "constants/local-data";
 import * as PropTypes from "prop-types";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 

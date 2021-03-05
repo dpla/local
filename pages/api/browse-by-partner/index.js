@@ -7,7 +7,7 @@ export const config = {
   },
 }
 
-import { LOCALS } from "constants/local";
+import { LOCALS } from "constants/local-data";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 const API_KEY = process.env.API_KEY
 

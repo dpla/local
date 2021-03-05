@@ -1,0 +1,81 @@
+@import "stylesheets/variables";
+
+.sidebar {
+  flex-shrink: 0;
+  margin: 0 0.5rem;
+
+  @media ($sm-viewport) {
+    margin: 0;
+  }
+
+  & h2 {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    // color: $nyPink;
+    font-family: $inter;
+    font-weight: 800;
+    letter-spacing: 1.25px;
+    line-height: 21px;
+
+    @media ($sm-viewport) {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.facet {
+  margin-bottom: 0.5rem;
+  display: flex;
+
+  &:hover .facetName {
+    text-decoration: underline;
+  }
+}
+
+.facetName {
+  color: black;
+  flex-basis: 80%;
+  font-size: 0.8125rem;
+  word-break: break-word;
+}
+
+.activeFacetName {
+  color: $formLabelColor;
+  font-weight: bold;
+}
+
+.facetCount {
+  color: $dimmedTextColor;
+  flex-basis: 20%;
+  font-size: 0.8125rem;
+  margin-left: 0.25rem;
+  text-align: right;
+}
+
+.dateRangeFacet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dateFacet {
+  margin-bottom: 0.5rem;
+
+  & span {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  & input {
+    border: 0.05rem solid $dimmedTextColor;
+    border-radius: 0.125rem;
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+.dateButton {
+  // background: $vividViolet;
+  color: white;
+}

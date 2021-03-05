@@ -1,0 +1,211 @@
+@import "stylesheets/variables";
+
+.wrapper {
+  width: 100%;
+  box-shadow: inset 0 -0.075rem 0.075rem 0 rgba(0, 0, 0, 0.03);
+}
+
+.resultsCount {
+  color: $dimmedTextColor;
+  font-family: $inter;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.17px;
+  line-height: 18px;
+  text-align: right;
+
+  @media ($sm-viewport) {
+    font-size: 1rem;
+  }
+}
+
+.resultsCountQueryText {
+  font-weight: bold;
+}
+
+.resultsCountQuery {
+  display: none;
+
+  @media ($sm-viewport) {
+    display: inline-block;
+  }
+}
+
+.optionsBar {
+  display: flex;
+  padding: 0.5rem 1rem;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+
+  @media ($sm-viewport) {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+  & select {
+    appearance: none;
+    background: url(/static/icon/search/icon-search-dropdown.svg) no-repeat white;
+    background-position: calc(100% - 0.5rem) center;
+    border: 0.075rem solid $formLabelColor;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem 0.5rem 0.25rem;
+    width: 100%;
+    font-size: 14px;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}
+
+.resultsAndFilter {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 0.075rem solid rgba(0, 0, 0, 0.05);
+
+  @media ($sm-viewport) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+
+  @media ($sm-viewport) {
+  }
+}
+
+.optionWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  select {
+    border: none;
+  }
+  box-sizing: border-box;
+}
+
+.optionHeader {
+  color: $dimmedTextColor;
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  line-height: 1.0625;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.viewButtons {
+  display: flex;
+}
+
+.gridViewButton, .listViewButton {
+  background-color: white;
+  padding: 0.6rem 0.6rem 0.4rem;
+
+  @media ($sm-viewport) {
+    padding: 0.6rem 0.6rem 0.4rem;
+  }
+}
+
+.listViewButton {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.gridViewButton {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.viewButtonInactive.gridViewButton {
+  // box-shadow: 0 -0.075rem 0.15rem 0 $lightBorderColor;
+}
+
+.viewButtonInactive.listViewButton {
+  // box-shadow: 0 -0.075rem 0.15rem 0 $lightBorderColor;
+}
+
+.viewButtonActive {
+  cursor: default;
+  border-radius: 4px;
+  background-color: rgba(138, 137, 137, 0.2);
+}
+
+.viewButtonActive .viewButtonIcon {
+  // opacity: 0.45;
+}
+
+.viewButtonIcon {
+  height: 18px;
+}
+
+.pageNumber {
+  font-family: $inter;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+  line-height: 21px;
+  margin: .75em 1em;
+
+  @media ($sm-viewport) {
+    display: none;
+  }
+}
+
+.toggleFilters {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  @media ($sm-viewport) {
+    display: none;
+  }
+}
+
+.filtersButtonChevron {
+  height: 1.5rem;
+  width: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.showFilters .filtersButtonChevron {
+  transform: rotate(-180deg);
+}
+
+.activeFacetCount {
+  display: none;
+}
+
+@media (max-width: $smallEm) {
+  .withActiveFacets {
+    color: $paginationLinkColor;
+
+    & .filtersButtonChevron {
+      & path {
+        fill: $paginationLinkColor;
+      }
+    }
+  }
+
+  .activeFacetCount {
+    display: inline-block;
+    margin-left: 0.15rem;
+  }
+}
+
+.select {
+  padding-left: 14px;
+}

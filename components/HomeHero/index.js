@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { LOCALS } from "constants/local"
+import { LOCALS } from "constants/local-data"
 import css from "./HomeHero.module.scss"
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 

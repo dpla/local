@@ -1,7 +1,7 @@
 import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
 import VermontAbout from "components/Vermont/About"
-import { LOCALS } from "constants/local";
+import { LOCALS } from "constants/local-data";
 import FeatureHeader from "shared/FeatureHeader";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 

@@ -30,4 +30,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-/constants/local.js
+/constants/local-data.js

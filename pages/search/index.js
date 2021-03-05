@@ -166,8 +166,14 @@ Search.getInitialProps = async ({ query, req }) => {
 
   const facetQueries = queryArray.join("&");
 
-  const sort_by = query.sort_by || "";
-  const sort_order = query.sort_order || "";
+  // sort by
+  let sort_by = "";
+  let sort_order = ""
+  if (query.sort_by === "title") {
+      sort_by = "sourceResource.title";
+  } else if (query.sort_by === "created") {
+      sort_by = "sourceResource.date.begin";
+  }
 
   let page_size = query.page_size || DEFAULT_PAGE_SIZE;
   const acceptedPageSizes = pageSizeOptions.map(item => item.value);

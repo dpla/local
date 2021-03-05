@@ -2,8 +2,8 @@ import React from "react";
 
 import css from "./Accordion.module.scss";
 
-const addIcon = "/static/dpla-icons/add.svg";
-const subtractIcon = "/static/dpla-icons/subtract.svg";
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 class Accordion extends React.Component {
   componentWillMount() {
@@ -58,13 +58,11 @@ class Accordion extends React.Component {
                 >
                   <h3>{item.name}</h3>
                   {item.active &&
-                    <img
-                      src={subtractIcon}
-                      alt=""
-                      className={css.subtractIcon}
-                    />}
+                    <RemoveIcon className={css.subtractIcon} />
+                  }
                   {!item.active &&
-                    <img src={addIcon} alt="" className={css.addIcon} />}
+                    <AddIcon className={css.addIcon} />
+                  }
                 </button>
                 {item.type === "term" &&
                   <ul id={`facets_${i}`} className={css.subitems}>

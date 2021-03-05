@@ -10,7 +10,7 @@ import {
 import { joinIfArray } from "lib";
 
 import css from "./FiltersList.module.scss";
-import { CloseIcon } from '@material-ui/icons/Close'
+import CloseIcon from '@material-ui/icons/Close'
 
 const clearAllFacets = query => {
   const duped = Object.assign({}, query);
@@ -52,7 +52,7 @@ const Filter = ({ name, queryKey, route }) => {
           aria-label={`Remove ${label} ${name} filter`}
         >
           {label}: <span className={css.filterText}>{name}</span>
-          <img src={CloseIcon} alt={`clear ${name} filter`} />
+          <CloseIcon alt={`clear ${name} filter`}/>
         </a>
       </Link>
     </li>

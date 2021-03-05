@@ -7,6 +7,8 @@ import FiltersList from "components/SearchPage/FiltersList";
 import MainContent from "components/SearchPage/MainContent";
 import MaxPageError from "components/SearchPage/MaxPageError";
 import DPLAHead from "components/DPLAHead";
+const SEARCH_ENDPOINT = '/api/search'
+const ABOUT_ENDPOINT = '/api/about'
 
 import {
     getCurrentUrl,
@@ -187,7 +189,7 @@ Search.getInitialProps = async ({ query, req }) => {
   let aboutness = {};
   if (q.length > 0) {
     const aboutness_max = 4;
-    const aboutnessUrl = `${currentUrl}${LOCAL_ABOUT_ENDPOINT}?q=${q}`;
+    const aboutnessUrl = `${currentUrl}${ABOUT_ENDPOINT}?q=${q}`;
     const aboutnessRes = await fetch(aboutnessUrl);
     if (aboutnessRes.status !== 200) {
       aboutness = { docs: [], count: 0 };
@@ -217,7 +219,7 @@ Search.getInitialProps = async ({ query, req }) => {
       .filter(facet => facet && facet !== "+AND+" && facet !== "&").length;
 
     const facetsParam = `&facets=${possibleFacets.join(",")}&${facetQueries}`;
-    const url = `${currentUrl}/api/search?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}`;
+    const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}`;
     const res = await fetch(url);
 
     // api response for facets

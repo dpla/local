@@ -16,7 +16,7 @@ const Home = ({ router }) => {
   const DynamicComponent = components[LOCAL_ID]
 
   return (
-    <MainLayout hidePageHeader={true} hideSearchBar={true} route={router}>
+    <MainLayout route={router}>
       <div id="main" role="main">
         <HomeHero />
         <DynamicComponent />

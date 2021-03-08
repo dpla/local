@@ -20,8 +20,6 @@ const About = ({ router }) => {
       route={router}
       pageTitle={`${title}`}
       pageDescription={`${description}`}
-      hidePageHeader={false}
-      hideSearchBar={false}
     >
       <FeatureHeader title="About" />
       <div id="main" role="main">

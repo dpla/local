@@ -35,7 +35,6 @@ class MainLayout extends React.Component {
     const {
       children,
       route,
-      hideSearchBar,
       isSearchPage,
       headLinks,
       pageTitle,

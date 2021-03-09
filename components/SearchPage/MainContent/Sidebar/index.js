@@ -1,8 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import Router from "next/router";
-
-import Button from "components/shared/Button";
 import Accordion from "components/shared/Accordion";
 import FacetLink from "./components/FacetLink"
 import DateFacet from "./components/DateFacet"
@@ -12,7 +8,7 @@ import {
   prettifiedFacetMap
 } from "constants/search";
 
-import { addCommasToNumber, escapeForRegex, removeQueryParams } from "lib";
+import { escapeForRegex } from "lib";
 
 import css from "./Sidebar.module.scss";
 

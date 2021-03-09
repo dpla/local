@@ -124,13 +124,6 @@ Search.getInitialProps = async ({ query, req }) => {
       .replace(/"/g, "%22")
     : "";
 
-  let filters = local.filters ? local.filters : [];
-  let tags = [];
-  if (query.tags) {
-    tags = Array.isArray(query.tags) ? query.tags : new Array(query.tags);
-    filters = filters.concat(tags.map(tag => `tags:${tag}`));
-  }
-
   let hasDates = false;
   const queryArray = possibleFacets
     .map(facet => {
@@ -190,9 +183,12 @@ Search.getInitialProps = async ({ query, req }) => {
     const numberOfActiveFacets = facetQueries
       .split(/(&|\+AND\+)/)
       .filter(facet => facet && facet !== "+AND+" && facet !== "&").length;
-
+    
+    let filters = local.filters ? local.filters : [];
     const facetsParam = `&facets=${possibleFacets.join(",")}&${facetQueries}`;
-    const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}`;
+    const filtersParam = filters.map(x => `&filter=${x}`).join("");
+    const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}${filtersParam}`;
+    console.log('FE ', url)
     const res = await fetch(url);
 
     // api response for facets
@@ -214,13 +210,6 @@ Search.getInitialProps = async ({ query, req }) => {
     possibleFacets.forEach(facet => {
       if (json.facets[facet]) newFacets[facet] = json.facets[facet];
     });
-
-    if (tags) {
-      newFacets["tags"] = {
-        "_type" : "terms",
-        "terms" : tags
-      };
-    }
 
     json.facets = newFacets;
 

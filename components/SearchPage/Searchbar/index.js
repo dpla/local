@@ -1,22 +1,21 @@
 import React from "react";
-import { withRouter } from "next/router";
-import css from "./Searchbar.module.scss";
+import scss from "./Searchbar.module.scss";
 
 const Searchbar = ({ searchQuery }) => {
   return (
-    <div className={css.headerSearchBar}>
-      <div className={`${css.flexWrapper} site-max-width`}>
-        <form action="/search" className={css.searchBar}>
+    <div className={scss.headerSearchBar}>
+      <div className={`${scss.flexWrapper} site-max-width`}>
+        <form action="/search" className={scss.searchBar}>
           <input
             key={searchQuery}
-            className={css.searchInput}
+            className={scss.searchInput}
             name="q"
             type="search"
-            placeholder="Search the collection"
+            placeholder="Search the Collection"
             aria-label="Search the collection"
             autoComplete="off"
           />
-          <button type="submit" className={css.searchButton}>
+          <button type="submit" className={scss.searchButton}>
             Search
           </button>
         </form>
@@ -24,4 +23,4 @@ const Searchbar = ({ searchQuery }) => {
     </div>
   );
 }
-export default withRouter(Searchbar);
+export default Searchbar;

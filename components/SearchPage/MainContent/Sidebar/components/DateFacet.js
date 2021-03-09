@@ -2,6 +2,7 @@ import React from "react"
 import { removeQueryParams } from "lib"
 import css from "../Sidebar.module.scss"
 import { Button } from '@material-ui/core'
+import Router from "next/router";
 
 class DateFacet extends React.Component {
   componentWillMount() {
@@ -142,7 +143,7 @@ class DateFacet extends React.Component {
         {Object.entries(formVals).map(([k, v], index) => {
           return <input type="hidden" name={k} key={index} value={v} />;
         })}
-        <Button type="secondary" className={css.dateButton} mustsubmit="true">
+        <Button type="secondary" variant="contained" className={css.dateButton} mustsubmit="true">
           SET
         </Button>
       </form>

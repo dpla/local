@@ -103,18 +103,6 @@ class Search extends React.Component {
     }
 }
 
-const getItemCount = (results) => {
-    var itemCount = 0;// default handles unexpected error
-    if ("count" in results) {
-        if (results.count.value !== undefined) {
-            itemCount = results.count.value // ElasticSearch 7
-        } else {
-            itemCount = results.count // ElasticSearch 6
-        }
-    }
-    return itemCount;
-};
-
 Search.getInitialProps = async ({ query, req }) => {
   let local = LOCALS[LOCAL_ID];
   const currentUrl = getCurrentUrl(req);

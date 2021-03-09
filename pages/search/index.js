@@ -188,7 +188,6 @@ Search.getInitialProps = async ({ query, req }) => {
     const facetsParam = `&facets=${possibleFacets.join(",")}&${facetQueries}`;
     const filtersParam = filters.map(x => `&filter=${x}`).join("");
     const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}${filtersParam}`;
-    console.log('FE ', url)
     const res = await fetch(url);
 
     // api response for facets

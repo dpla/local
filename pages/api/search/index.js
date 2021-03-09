@@ -9,7 +9,6 @@ export const config = {
 
 import {
   possibleFacets,
-  mapFacetsToURLPrettified,
   splitAndURIEncodeFacet
 } from "constants/search";
 const API_KEY = process.env.API_KEY
@@ -17,6 +16,8 @@ const API_KEY = process.env.API_KEY
 export default (req, res) => {
   const query = req.query
   let hasDates = false;
+
+  // the query array is reformatted here because the api doesn't need/use prettified facets
   const queryArray = possibleFacets
     .map(facet => {
       if (facet.indexOf("sourceResource.date") !== -1 && !hasDates) {

@@ -1,0 +1,53 @@
+@import "stylesheets/variables";
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.activeBreadcrumb {
+  display: inline-block;
+  max-width: 30rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  opacity: 0.5;
+
+  @media (max-width: $smallEm) {
+    display: inline;
+    white-space: normal;
+    max-width: none;
+  }
+}
+
+.breadcrumbLink {
+  display: block;
+  max-width: 13.125rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.breadcrumbLinkWrapper {
+  align-items: center;
+  display: flex;
+  position: relative;
+  padding-bottom: 0.3em;
+}
+
+.breadcrumbLink p, .activeBreadcrumb p {
+  max-width: 7rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media ($xsm-viewport) {
+    max-width: 9rem;
+  }
+
+  @media ($sm-viewport) {
+    max-width: 13.5rem;
+  }
+}

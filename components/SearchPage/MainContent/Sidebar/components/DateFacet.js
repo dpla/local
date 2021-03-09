@@ -1,50 +1,30 @@
+import React from "react"
 import { removeQueryParams } from "lib"
-// import classes from "../Sidebar.module.scss"
+import css from "../Sidebar.module.scss"
 import { Button } from '@material-ui/core'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { makeStyles } from '@material-ui/core'
+import Router from "next/router";
 
-const useStyles = makeStyles(() => ({
-  dateRangeFacet: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  
-  dateFacet: {
-    marginBottom: '0.5rem',
-  
-    '& span': {
-      display: 'block',
-      marginBottom: '0.25rem'
-    },
-  
-    '& input': {
-      border: '0.05rem solid #cac7c7',
-      borderRadius: '0.125rem',
-      padding: '0.5rem 0.5rem',
+class DateFacet extends React.Component {
+  componentWillMount() {
+    this.setState({
+      after: this.props.after || "",
+      before: this.props.before || ""
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.after !== this.state.after ||
+      nextProps.before !== this.state.before
+    ) {
+      this.setState({
+        after: nextProps.after || "",
+        before: nextProps.before || ""
+      });
     }
   }
-}))
 
-const DateFacet = ({route, after, before }) => {
-  const [afterState, setAfter] = useState(after || "")
-  const [beforeState, setBefore] = useState(before || "")
-  const router = useRouter()
-  const classes = useStyles()
-
-  useEffect((after, before) => {
-    if (
-      after !== afterState ||
-      before !== beforeState
-    ) {
-      setAfter(after || "")
-      setBefore(before || "")
-    }
-  }, [after, before])
-
-  const cleanText = (target, compare) => {
+  cleanText(target, compare) {
     let year = target.value;
     if (isNaN(target.value)) {
       year = compare;
@@ -53,46 +33,58 @@ const DateFacet = ({route, after, before }) => {
     return year;
   }
 
-  const handleAfterText = event => {
-    let year = cleanText(event.target, afterState);
-    setAfter(year)
+  handleAfterText = event => {
+    let year = this.cleanText(event.target, this.state.after);
+    this.setState({
+      before: this.state.before,
+      after: year
+    });
   };
 
-  const validateAfter = event => {
-    let year = cleanText(event.target, afterState);
-    if (year !== "" && beforeState !== "" && year > beforeState) {
-      year = beforeState;
-      setAfter(year)
+  validateAfter = event => {
+    let year = this.cleanText(event.target, this.state.after);
+    if (year !== "" && this.state.before !== "" && year > this.state.before) {
+      year = this.state.before;
+      this.setState({
+        before: this.state.before,
+        after: year
+      });
     }
   };
 
-  const handleBeforeText = event => {
-    let year = cleanText(event.target, beforeState);
-    setBefore(year)
+  handleBeforeText = event => {
+    let year = this.cleanText(event.target, this.state.before);
+    this.setState({
+      after: this.state.after,
+      before: year
+    });
   };
 
-  const validateBefore = event => {
-    let year = cleanText(event.target, beforeState);
-    if (year !== "" && afterState !== "" && year < afterState) {
-      year = afterState;
-      setBefore(year)
+  validateBefore = event => {
+    let year = this.cleanText(event.target, this.state.before);
+    if (year !== "" && this.state.after !== "" && year < this.state.after) {
+      year = this.state.after;
+      this.setState({
+        after: this.state.after,
+        before: year
+      });
     }
   };
 
-  const handleKeyDown = event => {
-    if (event.keyCode === 13) {
-      handleDateSubmit(event);
+  handleKeyDown(e) {
+    if (e.keyCode === 13) {
+      this.handleDateSubmit(e);
     }
   }
 
-  const handleDateSubmit = event => {
-    event.preventDefault();
-    const dateProps = getDateProps();
-    router.push({
-      pathname: route.pathname,
+  handleDateSubmit(e) {
+    e.preventDefault();
+    const dateProps = this.getDateProps();
+    Router.push({
+      pathname: this.props.route.pathname,
       query: Object.assign(
         {},
-        removeQueryParams(route.query, ["after", "before"]),
+        removeQueryParams(this.props.route.query, ["after", "before"]),
         dateProps,
         {
           page: 1
@@ -101,60 +93,62 @@ const DateFacet = ({route, after, before }) => {
     });
   }
 
-  const getDateProps = () => {
+  getDateProps() {
     let dateProps = {};
-    if (afterState !== "") dateProps.after = afterState;
-    if (beforeState !== "") dateProps.before = beforeState;
+    if (this.state.after !== "") dateProps.after = this.state.after;
+    if (this.state.before !== "") dateProps.before = this.state.before;
     return dateProps;
   }
 
-  const formVals = Object.assign(
-    {},
-    removeQueryParams(route.query, ["after", "before", "page"]),
-    {
-      page: 1
-    }
-  );
-
-  return (
-    <form
-      action={route.pathname}
-      method="get"
-      className={classes.dateRangeFacet}
-      onSubmit={e => handleDateSubmit(e)}
-    >
-      <label className={classes.dateFacet} htmlFor="after-date">
-        <input
-          id="after-date"
-          type="numeric"
-          name="after"
-          value={afterState}
-          onChange={(e) => handleAfterText(e)}
-          onBlur={e => validateAfter(e)}
-          onKeyDown={e => handleKeyDown(e)}
-          placeholder="Start Year"
-        />
-      </label>
-      <label className={classes.dateFacet} htmlFor="before-date">
-        <input
-          id="before-date"
-          type="numeric"
-          name="before"
-          value={beforeState}
-          onChange={e => handleBeforeText(e)}
-          onBlur={e => validateBefore(e)}
-          onKeyDown={e => handleKeyDown(e)}
-          placeholder="End Year"
-        />
-      </label>
-      {Object.entries(formVals).map(([k, v], index) => {
-        return <input type="hidden" name={k} key={index} value={v} />;
-      })}
-      <Button variant="contained" color="primary" disableElevation type="submit">
-        SET
-      </Button>
-    </form>
-  );
+  render() {
+    // NOTE: this form should maybe be wrapping the entire sidebar?
+    const formVals = Object.assign(
+      {},
+      removeQueryParams(this.props.route.query, ["after", "before", "page"]),
+      {
+        page: 1
+      }
+    );
+    return (
+      <form
+        action={this.props.route.pathname}
+        method="get"
+        className={css.dateRangeFacet}
+        onSubmit={e => this.handleDateSubmit(e)}
+      >
+        <label className={css.dateFacet} htmlFor="after-date">
+          <input
+            id="after-date"
+            type="numeric"
+            name="after"
+            value={this.state.after}
+            onChange={e => this.handleAfterText(e)}
+            onBlur={e => this.validateAfter(e)}
+            onKeyDown={e => this.handleKeyDown(e)}
+            placeholder="Start Year"
+          />
+        </label>
+        <label className={css.dateFacet} htmlFor="before-date">
+          <input
+            id="before-date"
+            type="numeric"
+            name="before"
+            value={this.state.before}
+            onChange={e => this.handleBeforeText(e)}
+            onBlur={e => this.validateBefore(e)}
+            onKeyDown={e => this.handleKeyDown(e)}
+            placeholder="End Year"
+          />
+        </label>
+        {Object.entries(formVals).map(([k, v], index) => {
+          return <input type="hidden" name={k} key={index} value={v} />;
+        })}
+        <Button type="secondary" variant="contained" className={css.dateButton} mustsubmit="true">
+          SET
+        </Button>
+      </form>
+    );
+  }
 }
 
 export default DateFacet

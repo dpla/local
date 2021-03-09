@@ -11,7 +11,7 @@ const ExhibitsPage = ({ router }) => {
   const description = local.routes['/exhibits'].description
 
   return (
-    <MainLayout hidePageHeader={true} hideSearchBar={true} route={router} pageTitle={title}
+    <MainLayout route={router} pageTitle={title}
       pageDescription={description} id="main" role="main">
       <DPLAHead
         pageTitle={title}

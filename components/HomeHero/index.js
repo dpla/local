@@ -39,7 +39,7 @@ const HomeHero = ({ headerDescription, feature }) => {
         </form>
         {LOCALS[LOCAL_ID].hasAbout &&
           <div className={css.links}>
-            <Link href="/local/about" as="/about">
+            <Link href="/about">
               <a>Learn more about {LOCALS[LOCAL_ID].name}</a>
             </Link>
           </div>}

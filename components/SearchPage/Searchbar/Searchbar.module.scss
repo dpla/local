@@ -13,16 +13,6 @@
   display: flex;
   margin: auto;
   padding: 0.5rem 1rem;
-
-  &.pro {
-    @media (max-width: $mediumRem) {
-      padding: 0;
-    }
-  }
-
-  @media (min-width: $largeRem) {
-    padding: 0;
-  }
 }
 
 .searchBar {
@@ -35,12 +25,6 @@
 
   @media (min-width: $mediumRem) {
     padding-left: 1rem;
-  }
-
-  @media (min-width: $largeRem) {
-    justify-self: flex-end;
-    padding-left: 0;
-    width: 50%;
   }
 }
 

@@ -4,11 +4,10 @@ import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
 import OptionsBar from "components/SearchPage/OptionsBar";
 import FiltersList from "components/SearchPage/FiltersList";
+import Searchbar from "components/SearchPage/Searchbar";
 import MainContent from "components/SearchPage/MainContent";
 import MaxPageError from "components/SearchPage/MaxPageError";
 import DPLAHead from "components/DPLAHead";
-const SEARCH_ENDPOINT = '/api/search'
-const ABOUT_ENDPOINT = '/api/about'
 
 import {
     getCurrentUrl,
@@ -26,6 +25,7 @@ import {
 
 import { LOCALS } from "constants/local-data";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
+const SEARCH_ENDPOINT = '/api/search'
 
 class Search extends React.Component {
 
@@ -69,6 +69,7 @@ class Search extends React.Component {
                         "Search results" :
                         `Search results for "${query}"`}
                 />
+                <Searchbar searchQuery={query}/>
                 <OptionsBar
                     showFilters={this.state.showSidebar}
                     currentPage={currentPage}
@@ -102,18 +103,6 @@ class Search extends React.Component {
     }
 }
 
-const getItemCount = (results) => {
-    var itemCount = 0;// default handles unexpected error
-    if ("count" in results) {
-        if (results.count.value !== undefined) {
-            itemCount = results.count.value // ElasticSearch 7
-        } else {
-            itemCount = results.count // ElasticSearch 6
-        }
-    }
-    return itemCount;
-};
-
 Search.getInitialProps = async ({ query, req }) => {
   let local = LOCALS[LOCAL_ID];
   const currentUrl = getCurrentUrl(req);
@@ -122,13 +111,6 @@ Search.getInitialProps = async ({ query, req }) => {
       .replace(/'/g, "%27")
       .replace(/"/g, "%22")
     : "";
-
-  let filters = local.filters ? local.filters : [];
-  let tags = [];
-  if (query.tags) {
-    tags = Array.isArray(query.tags) ? query.tags : new Array(query.tags);
-    filters = filters.concat(tags.map(tag => `tags:${tag}`));
-  }
 
   let hasDates = false;
   const queryArray = possibleFacets
@@ -185,41 +167,15 @@ Search.getInitialProps = async ({ query, req }) => {
 
   let page = query.page || 1;
 
-  // get the aboutness links
-  let aboutness = {};
-  if (q.length > 0) {
-    const aboutness_max = 4;
-    const aboutnessUrl = `${currentUrl}${ABOUT_ENDPOINT}?q=${q}`;
-    const aboutnessRes = await fetch(aboutnessUrl);
-    if (aboutnessRes.status !== 200) {
-      aboutness = { docs: [], count: 0 };
-    } else {
-      const aboutnessJson = await aboutnessRes.json();
-      const aboutnessDocs = aboutnessJson.docs
-        .map(result => {
-          const thumbnailUrl = getItemThumbnail(result);
-          return Object.assign({}, result.sourceResource, {
-            thumbnailUrl,
-            id: result.id ? result.id : result.sourceResource["@id"],
-            sourceUrl: result.isShownAt,
-            provider: result.provider && result.provider.name,
-            dataProvider: result.dataProvider,
-            useDefaultImage: !result.object
-          });
-        })
-        .splice(0, aboutness_max);
-      const aboutnessCount = aboutnessJson.count;
-      aboutness = { docs: aboutnessDocs, count: aboutnessCount };
-    }
-  }
-
   if (page <= MAX_PAGE_SIZE) {
     const numberOfActiveFacets = facetQueries
       .split(/(&|\+AND\+)/)
       .filter(facet => facet && facet !== "+AND+" && facet !== "&").length;
-
+    
+    let filters = local.filters ? local.filters : [];
     const facetsParam = `&facets=${possibleFacets.join(",")}&${facetQueries}`;
-    const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}`;
+    const filtersParam = filters.map(x => `&filter=${x}`).join("");
+    const url = `${currentUrl}${SEARCH_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}${filtersParam}`;
     const res = await fetch(url);
 
     // api response for facets
@@ -242,13 +198,6 @@ Search.getInitialProps = async ({ query, req }) => {
       if (json.facets[facet]) newFacets[facet] = json.facets[facet];
     });
 
-    if (tags) {
-      newFacets["tags"] = {
-        "_type" : "terms",
-        "terms" : tags
-      };
-    }
-
     json.facets = newFacets;
 
     const maxResults = MAX_PAGE_SIZE * page_size;
@@ -259,8 +208,7 @@ Search.getInitialProps = async ({ query, req }) => {
       numberOfActiveFacets,
       currentPage: page,
       pageCount,
-      pageSize: page_size,
-      aboutness: aboutness
+      pageSize: page_size
     };
   }
 };

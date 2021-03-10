@@ -1,20 +1,25 @@
-// avoids redundant API error 
-export const config = {
-  api: {
-    externalResolver: true,
-  },
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import httpProxyMiddleware from "next-http-proxy-middleware";
+
+const proxy = (req, res) => {
+  var separator = req.url.indexOf("?") === -1 ? "?" : "&";
+  var newPath = req.url.replace(
+    /^\/api\/item(.*)$/,
+    "/" +
+    (process.env.API_VERSION || "v2") + // to support absent v2 env variable
+    "/items" +
+    "$1" +
+    separator +
+    "api_key=" +
+    process.env.API_KEY
+  );
+
+  req.url = newPath
+
+  return httpProxyMiddleware(req, res, {
+    target: 'https://api.dp.la'
+  });
 }
 
-const API_KEY = process.env.API_KEY
-
-export default (req, res) => {
-  const query = req.query
-  const url = `http://api.dp.la/v2/items/${query.itemid}?api_key=${API_KEY}`
-
-  fetch(url)
-  .then(data => data.json())
-  .then(results => {
-    res.status(200).json(results)
-  })
-  .catch(error => console.log('error in browse by partner api ', error))
-}
+export default proxy;

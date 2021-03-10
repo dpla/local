@@ -4,7 +4,6 @@ import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
 import OptionsBar from "components/SearchPage/OptionsBar";
 import FiltersList from "components/SearchPage/FiltersList";
-import Searchbar from "components/SearchPage/Searchbar";
 import MainContent from "components/SearchPage/MainContent";
 import MaxPageError from "components/SearchPage/MaxPageError";
 import DPLAHead from "components/DPLAHead";
@@ -69,7 +68,6 @@ class Search extends React.Component {
                         "Search results" :
                         `Search results for "${query}"`}
                 />
-                <Searchbar searchQuery={query}/>
                 <OptionsBar
                     showFilters={this.state.showSidebar}
                     currentPage={currentPage}

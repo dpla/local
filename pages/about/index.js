@@ -62,11 +62,11 @@ class AboutPage extends React.Component {
           description={pageData.description}
         />}
         <div
-          className="container sidebarAndContentWrapper"
+          className="utils_container sidebarAndContentWrapper"
         >
           <div className="row">
               <Sidebar
-              className="content_sidebar"
+              className="content_sidebar "
               items={pages}
               activePage={router.asPath}
               render={hasSidebar}

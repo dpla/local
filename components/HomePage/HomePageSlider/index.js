@@ -23,7 +23,7 @@ const HomePageSlider = ({
     <div className={`${scss.content} site-max-width`}>
       <div className={scss.heading}>
         <h2 className={scss.title}>{title}</h2>
-        <Link prefetch href={browseLinkUrl}>
+        <Link  href={browseLinkUrl}>
           <a className={`hover-underline ${scss.moreLink}`}>
             Browse all{" "}
             <span className={scss.moreLinkNoun}>{browseLinkName}</span>
@@ -58,7 +58,7 @@ const HomePageSlider = ({
         {items.map(
           ({ name, repImageUrl, thumbnailUrl, isFeatured, href, as }, index) =>
             <div key={`${name}—${index}`}>
-              <Link prefetch href={href} as={as}>
+              <Link  href={href} as={as}>
                 <a className={scss.item}>
                   <div className={scss.itemImgWrapper}>
                     <div

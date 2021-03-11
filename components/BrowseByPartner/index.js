@@ -27,7 +27,7 @@ const mapPartnersToComponents = partners =>
   );
 
 const PartnerBrowseContent = ({ route, partners }) =>
-  <div className={`container ${scss.partnerBrowse}`}>
+  <div className={`utils_container ${scss.partnerBrowse}`}>
     <div className={`row`}>
       <ul className={`${scss.partners} col-xs-12`}>
         {mapPartnersToComponents(partners)}

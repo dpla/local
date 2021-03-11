@@ -17,9 +17,9 @@ Using your terminal, `cd` in to your favorite folder
 
 Run `git clone https://github.com/dpla/local.git`
 
-Once the project is cloned, run `cd local`
+Once the project is cloned, run `cd local` to enter the directory
 
-Run `npm install`
+Run `npm install` to install `node_modules`
 
 Then, run the development server:
 
@@ -101,5 +101,6 @@ Since all Local instances share the same codebase, there is a [`constants/local-
 - `locationFacet`: URL-encoded value used to restrict the search interface results to items with the specified `sourceResource.spatial.name` (for example `%22Wisconsin%22` for Recollection Wisconsin)
 - `subjectFacet`: URL-encoded value used to restrict the search interface results to items with the specified `sourceResource.subject.name` (for example `%22Wisconsin%22` for Recollection Wisconsin)
 - `hasAbout`: determines whether to show (`true`) or not (`false`) the “About” link in the top navigation
+- `hasExhibits`: determines whether to show (`true`) or not (`false`) the “Exhibits” link in the top navigation
 - `externalLink`: URL for the top navigation link with the Local's `name`
 

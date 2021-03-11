@@ -3,7 +3,7 @@ import css from "./FeatureHeader.module.scss";
 
 const FeatureHeader = ({ title, description, titleClassName }) =>
   <div className={css.wrapper}>
-    <div className={`container ${css.content}`}>
+    <div className={`utils_container ${css.content}`}>
       <h1
         className={`${titleClassName ? titleClassName : ""} ${description === ""
           ? css.long

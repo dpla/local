@@ -70,7 +70,7 @@ class FiltersList extends React.Component {
           <div
             className={`${showFilters
               ? css.isOpen
-              : ""} ${css.filtersList} container`}
+              : ""} ${css.filtersList} utils_container`}
           >
             <div className={css.labelAndFilters}>
               <span className={css.labelText}>FILTERS</span>

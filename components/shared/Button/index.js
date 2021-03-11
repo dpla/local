@@ -17,7 +17,6 @@ const Button = ({
   expanded,
   icon,
   onClick,
-  prefetch,
   size,
   style,
   title,

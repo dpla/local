@@ -26,7 +26,7 @@ const MainContent = ({
 
   return (
     <div className={css.wrapper}>
-      <div className={`container ${css.mainContent}`}>
+      <div className={`utils_container ${css.mainContent}`}>
         {results.length > 0 &&
           <div className={`${!hideSidebar ? css.isOpen : ""} ${css.sidebar}`}>
             <Sidebar route={route} facets={facets} />

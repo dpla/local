@@ -37,7 +37,7 @@ const ItemDetail = ({url, item}) => {
       <main
          id="main"
          role="main"
-         className={`container ${css.contentWrapper}`}
+         className={`utils_container ${css.contentWrapper}`}
        >
          <Content item={item} url={url} />
       </main>

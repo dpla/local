@@ -1,17 +1,13 @@
 import { withRouter } from "next/router";
 import MainLayout from "components/MainLayout";
-import VermontAbout from "components/Vermont/About"
+import About from "components/About"
 import { LOCALS } from "constants/local-data";
 import FeatureHeader from "shared/FeatureHeader";
+import { getCurrentUrl } from "lib";
 const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
 
-const components = {
-  vermont: VermontAbout
-}
-
-const About = ({ router }) => {
+const AboutPage = ({ router, content }) => {
   const local = LOCALS[LOCAL_ID]
-  const About = components[local.theme];
   const title = local.routes['/about'].title
   const description = local.routes['/about'].description
 
@@ -23,10 +19,22 @@ const About = ({ router }) => {
     >
       <FeatureHeader title="About" />
       <div id="main" role="main">
-        <About />
+        <About content={content}/>
       </div>
     </MainLayout>
   )
 }
 
-export default withRouter(About);
+AboutPage.getInitialProps = async ({ req }) => {
+  const fullUrl = getCurrentUrl(req);
+  const markdownUrl = `${fullUrl}/static/${LOCALS[LOCAL_ID]
+    .theme}/about.md`;
+  const markdownResponse = await fetch(markdownUrl);
+  const pageMarkdown = await markdownResponse.text();
+
+  return {
+    content: pageMarkdown
+  };
+};
+
+export default withRouter(AboutPage);

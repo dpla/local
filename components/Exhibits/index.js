@@ -1,59 +1,75 @@
 import scss from "./Exhibits.module.scss"
-import { directusExhibit } from "constants/exhibit"
+
 import Card from '@material-ui/core/Card'
-import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import Typography from '@material-ui/core/Typography'
 import Link from "next/link"
+import FeatureHeader from "shared/FeatureHeader";
+import {LOCALS} from "constants/local-data"
 
-import { useRouter } from 'next/router';
+import {makeStyles} from '@material-ui/core/styles';
+import {Container, Grid} from "@material-ui/core";
 
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY
-const DIRECTUS_ENDPOINT = process.env.NEXT_PUBLIC_DIRECTUS_ENDPOINT
 
-const Exhibits = () => {
-    const router = useRouter()
-    const { exhibitId } = router.query
-    const exhibits = directusExhibit.data.items.exhibit
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+    details: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: "200px"
+    }
+}));
 
-    return (
-        <section className={scss.exhibits__section}>
-            <div className={scss.exhibits__container}>
-                <h1>Exhibits</h1>
-                <div className={scss.exhibits__cards}>
+function Exhibits( { exhibits} ) {
+    const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
+    //console.log("data", exhibits)
+    const classes = useStyles()
+    const local = LOCALS[LOCAL_ID]
+    return (<>
+            <FeatureHeader title={local.routes["/exhibits"].title} description={local.routes['/exhibits'].description}/>
+            <section className={scss.exhibits__section}>
+                <div className={scss.exhibits__container}>
 
-                    {
-                        exhibits.map(exhibit => {
-                            return (
-                                <Card className={scss.card} key={exhibit.title}>
-                                    <CardActionArea>
-                                        <Link href={`/exhibits/${exhibitId}`}>
-                                            <div>
-                                                <CardMedia
-                                                    component="img"
-                                                    alt={exhibit.caption}
-                                                    height="140"
-                                                    image={`${DIRECTUS_ENDPOINT}${exhibit.banner.id}?asset_token=${API_KEY}`}
-                                                    onError={(e) => {
-                                                        e.target.src = "https://via.placeholder.com/150"
-                                                    }}
-                                                />
-                                                <CardContent>
-                                                    <Typography gutterBottom variant="h5" component="h2">
-                                                        {exhibit.title}
-                                                    </Typography>
-                                                </CardContent>
-                                            </div>
-                                        </Link>
-                                    </CardActionArea>
-                                </Card>
-                            )
+                    <div className={scss.wrapper}>
+                        <Container>
+                            <Grid container spacing={8}>
+                                {
+                                    exhibits.map(exhibit => {
+                                        return (
+                                            <Grid item key={exhibit.slug} xs={12} sm={6} md={6}>
+                                                <Card key={exhibit.title} className={classes.root}>
+                                                    <Link href={`/exhibits/${exhibit.slug}`}>
+                                                        <a>
+                                                            <CardMedia
+                                                                className={classes.details}
+                                                                component="img"
+                                                                image={exhibit.thumbnailUrl}
 
-                        })}
+                                                            />
+                                                        </a>
+                                                    </Link>
+                                                    <div className={scss.exhibitionText}>
+                                                        <CardContent style={{ padding: 0, margin: 0, display: "flex"}}>
+                                                            <CardContent>
+                                                                <Link href={`/exhibits/${exhibit.slug}`}><a><h2
+                                                                    className={scss.title}>
+                                                                    {exhibit.title}
+                                                                </h2></a></Link>
+                                                            </CardContent>
+                                                        </CardContent>
+                                                    </div>
+                                                </Card>
+                                            </Grid>
+                                        )
+                                    })}
+                            </Grid>
+                        </Container>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }
 

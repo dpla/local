@@ -21,6 +21,47 @@
 }
 
 
+.wrapper {
+  margin: 1rem auto 2rem;
+  padding: 0 1rem;
+
+  @media (min-width: $largeRem) {
+    padding: 0;
+    margin-top: 2rem;
+  }
+}
+
+.exhibitionText {
+  border-left: 0.25rem solid $darkBorderColor;
+  display: flex;
+  padding: 0.25rem;
+
+  @media (min-width: $smallRem) {
+    padding: 0.5rem;
+  }
+}
+
+
+.title {
+  font-family: $serifFont;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: auto 0;
+
+  @media (min-width: $xSmallRem) {
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: $mediumRem) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: $largeRem) {
+    font-size: 1.5rem;
+  }
+}
+
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and ($md-viewport) {
   .exhibits__section {

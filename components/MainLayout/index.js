@@ -61,7 +61,7 @@ const MainLayout = (props) => {
           route={route}
         />
         <Navbar />
-        {router.pathname != '/' && <Searchbar searchQuery={query}/>}
+        {router.pathname !== '/' && <Searchbar searchQuery={query}/>}
         {children}
         <Footer />
       </div>

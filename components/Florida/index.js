@@ -1,5 +1,5 @@
 import css from "./Florida.module.scss";
-import { topics } from "constants/Florida"
+import { topics } from "constants/florida"
 
 const Florida = () => {
   return (

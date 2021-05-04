@@ -1,8 +1,9 @@
-import {withRouter} from "next/router";
-import MainLayout from "components/MainLayout";
-import { LOCALS } from "constants/local-data";
+import {withRouter} from "next/router"
+import MainLayout from "components/MainLayout"
+import { LOCALS } from "constants/local-data"
 import Exhibits from "components/Exhibits"
-import DPLAHead from "components/DPLAHead";
+import DPLAHead from "components/DPLAHead"
+import { exhibits } from "constants/exhibits"
 
 const ExhibitsPage = ({router}) => {
     const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "paths": {
+      "lib/*": [
+        "./lib/*"
+      ],
+      "css/*": [
+        "./css/*"
+      ],
+      "static/*": [
+        "./static/*"
+      ],
+      "shared/*": [
+        "./components/shared/*"
+      ],
+      "constants/*": [
+        "./constants/*"
+      ],
+      "stylesheets/*": [
+        "./stylesheets/*"
+      ],
+      "components/*": [
+        "./components/*"
+      ]
+    }
+  },
+  "exclude": [
+    "snapshots.js",
+    "node_modules",
+    "lib",
+    ".tmp",
+    "build",
+    ".next"
+  ]
+}

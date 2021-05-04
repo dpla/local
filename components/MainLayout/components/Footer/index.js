@@ -13,8 +13,7 @@ const Footer = () => {
         <img
           className={css.localLogo}
           alt={`${LOCALS[LOCAL_ID].name} Home`}
-          src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID]
-            .logo}`}
+          src={`/static/${LOCALS[LOCAL_ID].theme}/${LOCALS[LOCAL_ID].logo}`}
         />
       </a>
     );

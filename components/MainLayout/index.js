@@ -26,9 +26,11 @@ const MainLayout = (props) => {
 
   const router = useRouter()
 
-  useEffect(() => {
-    router.events.on('routeChangeComplete', trackPageview())
-  }, [])
+
+    //TODO page tracking doesn't work right, fix
+  // useEffect(() => {
+  //   router.events.on('routeChangeComplete', trackPageview())
+  // }, [])
 
   const trackPageview = () => {
     // console.log('track')

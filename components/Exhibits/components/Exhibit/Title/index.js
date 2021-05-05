@@ -8,13 +8,12 @@ const ExhibitTitle = ({title, description, credits, citation, banner}) => {
   return (
     <section className={scss.exhibit_title__section}>   
       <div className={scss.exhibit_title__image}>
-      <img src={`${DIRECTUS_ENDPOINT}${banner}?asset_token=${API_KEY}`} onError={(e) => {e.target.src="https://via.placeholder.com/150"}}/>
+        <img src={banner} alt={""} />
       </div>
       <div className={scss.exhibit_title__info}>
         <h1>{title}</h1>
         {parse(description)}
         {parse(credits)}
-        {parse(citation)}
       </div>
     </section>
   )

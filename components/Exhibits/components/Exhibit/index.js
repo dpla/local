@@ -22,42 +22,41 @@ const Exhibit = ({ exhibit }) => {
         title={exhibit.title}
         description={exhibit.description}
         credits={exhibit.credits}
-        citation={exhibit.citation}
-        // banner={exhibit.banner}
+        banner={exhibit.frontImage.fullsize}
         caption={exhibit.caption}
       />
 
-      {exhibit.pages.map((chapter, index) => {
-        return (
-          <section key={`chapter-${index+1}`}>
-            <div key={`chapter-mobile-${index + 1}`} className={scss.exhibit__mobile_cards}>
-              <Accordion className={scss.exhibit__accordion}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                >
-                  <Typography component="h2" className={scss.exhibit__chapter}>Chapter {index + 1}: {chapter.title}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Chapter chapter={chapter} index={index} key={`chapter-${index + 1}`} />
-                </AccordionDetails>
-              </Accordion>
-            </div>
-            <div key={`chapter-desktop-${index + 1}`} className={scss.exhibit__desktop_cards}>
-              <Accordion expanded={expanded === `panel${index+1}`} className={scss.exhibit__accordion} onChange={handleChange(`panel${index+1}`)}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  className={scss.exhibit__accordion_summary}
-                >
-                  <Typography component="h2" className={scss.exhibit__chapter}>Chapter {index + 1}: {chapter.title}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Chapter chapter={chapter} index={index} key={`chapter-${index + 1}`} />
-                </AccordionDetails>
-              </Accordion>
-            </div>
-          </section>
-        )
-      })}
+      {/*{exhibit.pages.map((chapter, index) => {*/}
+      {/*  return (*/}
+      {/*    <section key={`chapter-${index+1}`}>*/}
+      {/*      <div key={`chapter-mobile-${index + 1}`} className={scss.exhibit__mobile_cards}>*/}
+      {/*        <Accordion className={scss.exhibit__accordion}>*/}
+      {/*          <AccordionSummary*/}
+      {/*            expandIcon={<ExpandMoreIcon />}*/}
+      {/*          >*/}
+      {/*            <Typography component="h2" className={scss.exhibit__chapter}>Chapter {index + 1}: {chapter.title}</Typography>*/}
+      {/*          </AccordionSummary>*/}
+      {/*          <AccordionDetails>*/}
+      {/*            <Chapter chapter={chapter} index={index} key={`chapter-${index + 1}`} />*/}
+      {/*          </AccordionDetails>*/}
+      {/*        </Accordion>*/}
+      {/*      </div>*/}
+      {/*      <div key={`chapter-desktop-${index + 1}`} className={scss.exhibit__desktop_cards}>*/}
+      {/*        <Accordion expanded={expanded === `panel${index+1}`} className={scss.exhibit__accordion} onChange={handleChange(`panel${index+1}`)}>*/}
+      {/*          <AccordionSummary*/}
+      {/*            expandIcon={<ExpandMoreIcon />}*/}
+      {/*            className={scss.exhibit__accordion_summary}*/}
+      {/*          >*/}
+      {/*            <Typography component="h2" className={scss.exhibit__chapter}>Chapter {index + 1}: {chapter.title}</Typography>*/}
+      {/*          </AccordionSummary>*/}
+      {/*          <AccordionDetails>*/}
+      {/*            <Chapter chapter={chapter} index={index} key={`chapter-${index + 1}`} />*/}
+      {/*          </AccordionDetails>*/}
+      {/*        </Accordion>*/}
+      {/*      </div>*/}
+      {/*    </section>*/}
+      {/*  )*/}
+      {/*})}*/}
 
     </section>
   )

@@ -3,12 +3,17 @@ import MainLayout from "components/MainLayout"
 import {LOCALS} from "constants/local-data"
 import Exhibits from "components/Exhibits"
 import DPLAHead from "components/DPLAHead"
+import ErrorPage from "next/error";
 
 const ExhibitsPage = ({router, exhibits}) => {
     const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
     const local = LOCALS[LOCAL_ID]
-    const title = local.routes['/exhibits'].title
-    const description = local.routes['/exhibits'].description
+    if (! local.exhibits ) {
+        return <ErrorPage statusCode={404} />
+    }
+
+    const title = local.exhibits.title
+    const description = local.exhibits.description
 
     return (
         <MainLayout route={router} pageTitle={title}
@@ -45,7 +50,6 @@ const loadExhibit = async exhibit => {
     const filesJson = await filesRes.json();
     exhibit.thumbnailUrl = filesJson[0].file_urls.square_thumbnail
 
-    console.log(exhibit)
     return exhibit
 }
 

@@ -102,6 +102,13 @@ class Navigation extends Component {
               </Link>
             </li>
           )}
+            {LOCALS[LOCAL_ID].exhibits && (
+                <li>
+                    <Link  href="/exhibits">
+                        <a>Exhibits</a>
+                    </Link>
+                </li>
+            )}
           {LOCALS[LOCAL_ID].hasBrowseAll && (
             <li>
               <Link  href="/search">

@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Exhibits( { exhibits} ) {
-    const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
-    //console.log("data", exhibits)
     const classes = useStyles()
+    const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
     const local = LOCALS[LOCAL_ID]
+
     return (<>
-            <FeatureHeader title={local.routes["/exhibits"].title} description={local.routes['/exhibits'].description}/>
+            <FeatureHeader title={local.exhibits.title} description={local.exhibits.description}/>
             <section className={scss.exhibits__section}>
                 <div className={scss.exhibits__container}>
 

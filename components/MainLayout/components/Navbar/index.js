@@ -88,11 +88,6 @@ const Navbar = ({classname, style}) => {
             </Link>
           </li>
         )}
-        <li>
-          <Link  href="/lists">
-            <a>My Lists</a>
-          </Link>
-        </li>
       </ul>
       {visitHtml && <span className={css.divider} />}
       {visitHtml && visitHtml}

@@ -8,6 +8,7 @@ import ErrorPage from "next/error";
 const ExhibitsPage = ({router, exhibits}) => {
     const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
     const local = LOCALS[LOCAL_ID]
+
     if (! local.exhibits ) {
         return <ErrorPage statusCode={404} />
     }

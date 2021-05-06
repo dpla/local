@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Exhibits( { exhibits} ) {
+function Exhibits( {exhibits} ) {
     const classes = useStyles()
     const LOCAL_ID = process.env.NEXT_PUBLIC_LOCAL_ID
     const local = LOCALS[LOCAL_ID]

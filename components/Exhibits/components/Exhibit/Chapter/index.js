@@ -5,15 +5,15 @@ import scss from "./Chapter.module.scss"
 const Chapter = ({ chapter }) => {
   return (
     <div className={scss.chapter}>
-      {chapter.blocks.map((block, index) => {
+      {chapter.page_blocks.map((block, index) => {
         return (
           <div key={`page-blocks-${index}`}>
-            {block.item.layout == "text" &&
-              <TextBlock data={block.item} />
+            {block.text &&
+              <TextBlock data={block} />
             }
-            {block.item.layout == "media" &&
-              <MediaBlock data={block.item}/>
-            }
+            {block.attachments && block.attachments.map((attachment) => {
+              return (<MediaBlock data={attachment}/>)
+            })}
           </div>
         )
       })}

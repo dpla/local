@@ -4,7 +4,6 @@ import DPLAHead from "components/DPLAHead";
 import Exhibit from "components/Exhibits/components/Exhibit"
 
 function ExhibitPage({exhibit}) {
-
     return (
         <MainLayout
             className="main"
@@ -21,9 +20,15 @@ function ExhibitPage({exhibit}) {
     )
 }
 
-
 // we have to do a bunch of work to get the pages out of omeka
 // because it doesn't return the pages nested and it doesn't load files
+
+const loadBlockAttachment = async (attachment) => {
+    const itemUrl = `https://dp.la/api/files?item=${attachment.item.id}`
+    const filesRes = await fetch(itemUrl)
+    const files = await filesRes.json()
+    if (files) attachment.files = files
+}
 
 const loadExhibit = async exhibit => {
     const exhibitUrl = `https://dp.la/api/exhibition_pages?exhibit=${exhibit.id}`
@@ -31,21 +36,11 @@ const loadExhibit = async exhibit => {
     const allPages = await exhibitPageRes.json()
 
     // sort the page blocks, load all the file info
-    allPages.forEach((page) => {
-        page.page_blocks = page
-            .page_blocks
-            .sort((b1, b2) => {
-                b1.order - b2.order
-            })
-            .map((block) => {
-                block.attachments.forEach(async (attachment) => {
-                    const itemUrl = `https://dp.la/api/files?item=${attachment.item.id}`
-                    const filesRes = await fetch(itemUrl)
-                    attachment.files = await filesRes.json()
-                })
-                console.log("BLOCK", JSON.stringify(block))
-                return block;
-            })
+    await allPages.map( async (page) => {
+        page.page_blocks = page.page_blocks.sort((b1, b2) => { b1.order - b2.order })
+        await Promise.all(page.page_blocks.map(async (block) => {
+            await Promise.all(block.attachments.map(attachment => loadBlockAttachment(attachment)))
+        }))
     })
 
     // top pages are all the pages that have no parents
@@ -69,6 +64,7 @@ const loadExhibit = async exhibit => {
     const filesRes = await fetch(`https://dp.la/api/files?item=${frontAttachmentId}`)
     const filesJson = await filesRes.json()
     exhibit.frontImage = filesJson[0].file_urls
+
     return exhibit
 }
 

@@ -46,8 +46,6 @@ const ExhibitTitleGrid = ({exhibit}) => {
 
     const frontpage = exhibit.pages[0].page_blocks[0]
 
-    console.log(frontpage)
-
     return (
         <section className={scss.exhibit_title__section}>
             <Grid container className={classes.root} spacing={0}>

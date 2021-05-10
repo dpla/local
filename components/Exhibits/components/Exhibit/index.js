@@ -59,7 +59,7 @@ const Exhibit = ({exhibit}) => {
                                         </h2>
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                        <Chapter chapter={page} index={index} key={`chapter-${index}`}/>
+                                        <Chapter parentPage={page} index={index} key={`chapter-${index}`}/>
                                     </AccordionDetails>
                                 </Accordion>
                             </div>

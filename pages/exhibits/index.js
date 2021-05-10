@@ -1,4 +1,6 @@
 import {withRouter} from "next/router"
+import { loadAllExhibits } from "pages/api/exhibits"
+import { useRouter } from 'next/router'
 import MainLayout from "components/MainLayout"
 import {LOCALS} from "constants/local-data"
 import Exhibits from "components/Exhibits"
@@ -31,43 +33,10 @@ const ExhibitsPage = ({router, exhibits}) => {
     )
 };
 
-const loadExhibit = async exhibit => {
 
-    const exhibitPageRes = await fetch(
-        `https://dp.la/api/exhibition_pages?exhibit=${exhibit.id}`
-    );
-    const exhibitJson = await exhibitPageRes.json();
 
-    const pageBlock = exhibitJson.find(
-        exhibit =>
-            exhibit.slug === "home-page" ||
-            exhibit.slug === "homepage" ||
-            exhibit.order === 0
-    ).page_blocks[0];
-
-    const itemId = pageBlock.attachments[0].item.id;
-    const filesRes = await fetch(
-        `https://dp.la/api/files?item=${itemId}`
-    );
-    const filesJson = await filesRes.json();
-    exhibit.thumbnailUrl = filesJson[0].file_urls.square_thumbnail
-
-    return exhibit
-}
-
-export async function getServerSideProps() {
-    const res = await fetch('https://dp.la/api/exhibitions')
-    const rawExhibits = await res.json()
-
-    if (!rawExhibits) {
-        return {
-            notFound: true,
-        }
-    }
-
-    const exhibits = (await Promise.all(rawExhibits.map((exhibit) => loadExhibit(exhibit))))
-        .sort( (a, b) => b.id - a.id)
-
+export async function getStaticProps(context) {
+    const exhibits = await loadAllExhibits()
     return { props: { exhibits } }
 }
 

@@ -23,11 +23,10 @@ function ExhibitPage({exhibit}) {
 // we have to do a bunch of work to get the pages out of omeka
 // because it doesn't return the pages nested and it doesn't load files
 
-const loadBlockAttachment = async (attachment) => {
+const loadAttachmentFiles = async attachment => {
     const itemUrl = `https://dp.la/api/files?item=${attachment.item.id}`
     const filesRes = await fetch(itemUrl)
-    const files = await filesRes.json()
-    if (files) attachment.files = files
+    return await filesRes.json()
 }
 
 const loadExhibit = async exhibit => {
@@ -36,12 +35,19 @@ const loadExhibit = async exhibit => {
     const allPages = await exhibitPageRes.json()
 
     // sort the page blocks, load all the file info
-    await allPages.map( async (page) => {
-        page.page_blocks = page.page_blocks.sort((b1, b2) => { b1.order - b2.order })
+    await Promise.all(allPages.map(async (page) => {
+        page.page_blocks = page.page_blocks.sort((b1, b2) => {
+            b1.order - b2.order
+        })
+
         await Promise.all(page.page_blocks.map(async (block) => {
-            await Promise.all(block.attachments.map(attachment => loadBlockAttachment(attachment)))
+            if (block.attachments) {
+                await Promise.all(block.attachments.map(async attachment => {
+                    attachment.files = await loadAttachmentFiles(attachment)
+                }))
+            }
         }))
-    })
+    }))
 
     // top pages are all the pages that have no parents
     const topPages = allPages
@@ -50,9 +56,9 @@ const loadExhibit = async exhibit => {
 
     exhibit.pages = topPages
 
-    // assign all the children to their parents
+    // assign all the children to their parents and sort them
     // we're assuming one level of nesting
-    topPages.forEach((page) => {
+    topPages.forEach(page => {
         page.children = allPages
             .filter(page => page.parent && page.parent.id === page.id)
             .sort((p1, p2) => {
@@ -60,10 +66,7 @@ const loadExhibit = async exhibit => {
             })
     })
 
-    const frontAttachmentId = exhibit.pages[0].page_blocks[0].attachments[0].item.id
-    const filesRes = await fetch(`https://dp.la/api/files?item=${frontAttachmentId}`)
-    const filesJson = await filesRes.json()
-    exhibit.frontImage = filesJson[0].file_urls
+    exhibit.frontImage = exhibit?.pages[0]?.page_blocks[0]?.attachments[0]?.files[0]?.file_urls
 
     return exhibit
 }
@@ -77,7 +80,7 @@ export async function getStaticPaths() {
     }
 
     const paths = rawExhibits.map(exhibit => ({params: {exhibitId: exhibit.slug}}))
-    return { paths, fallback: false }
+    return {paths, fallback: false}
 }
 
 // loads props for an exhibit given the slug in params

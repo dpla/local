@@ -1,11 +1,16 @@
 @import "stylesheets/variables";
 
 .text_block__section {
+
+  background: $theme-warmer-tint;
   padding: 1rem;
+  font-family: $serifFont;
+  font-size: 1rem;
 
   h3 {
     padding-bottom: .75rem;
     text-align: center;
+
   }
 
   h4 {
@@ -14,6 +19,7 @@
 
   p {
     line-height: 1.5rem;
+    padding-bottom: 2rem;
   }
 }
 

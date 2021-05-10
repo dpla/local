@@ -1,5 +1,64 @@
 @import "stylesheets/variables";
 
+.para {
+  font-family: $serifFont;
+  font-size: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.headlinetext {
+  font-family: $serifFont;
+  font-size: 3rem;
+  line-height: 6rem;
+}
+
+.text {
+  padding: 15px;
+  font-family: $serifFont;
+  font-size: 1rem;
+}
+
+.captionLeadIn {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-right: 0.25rem;
+}
+
+.caption {
+  color: $dimmedTextColor;
+  display: flex;
+  font-size: 0.875rem;
+  line-height: 1.125;
+  padding: 0 1rem;
+}
+
+.banner {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-position: center;
+  background-size: cover;
+}
+
+.exhibit_title__headline {
+  font-family: $serifFont;
+}
+
+.bodytext {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  font-family: $serifFont;
+  p {
+    padding-bottom: 1rem;
+  }
+}
+
 .exhibit_title__section {
   display: flex;
   flex-direction: column;

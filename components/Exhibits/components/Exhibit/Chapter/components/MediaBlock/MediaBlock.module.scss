@@ -1,11 +1,35 @@
 @import "stylesheets/variables";
 
+.caption {
+  min-width: 100%;
+}
+
+.cardImage {
+  height: 500px;
+  width: 650px;
+  background-position: center;
+}
+
 .media_block__section {
-  padding: 1rem;
+  padding: 2rem;
+  font-family: $serifFont;
+  font-size: 1rem;
+
+  caption {
+    width: 75%;
+    font-style: italic;
+    font-size: 0.875rem;
+    font-family: $sansFont;
+    //text-align: left;
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
 
   h3 {
     padding-bottom: .75rem;
-    text-align: center;
+    //text-align: left;
   }
 
   h4 {
@@ -14,7 +38,7 @@
 
   p {
     line-height: 1.5rem;
-    text-align: center;
+    //text-align: left;
   }
 
   img {
@@ -42,6 +66,7 @@
     p {
       font-size: 1.25rem;
     }
+
 
     img {
       width: 80%;

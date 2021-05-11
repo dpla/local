@@ -7,12 +7,12 @@ import CardMedia from "@material-ui/core/CardMedia";
 const MediaBlock = (attachment) => {
     return (
         <Container maxWidth={"md"}>
-        <Card>
-            <CardMedia className={scss.cardImage} image={attachment.data[0].files[0].file_urls.original}/>
-            <CardContent>
-                <caption className={scss.caption}> {attachment.data[0].caption && parse(attachment.data[0].caption)}</caption>
-            </CardContent>
-        </Card>
+            <Card>
+                <CardMedia className={scss.cardImage} image={attachment.data[0].files[0].file_urls.original}/>
+                <CardContent>
+                    <caption className={scss.caption}> {attachment.data[0].caption && parse(attachment.data[0].caption)}</caption>
+                </CardContent>
+            </Card>
         </Container>
     )
 }

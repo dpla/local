@@ -42,29 +42,24 @@
 }
 
 .root {
-  display: flex;
+  //display: flex;
 }
 
 .details {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px
 }
 
 .title {
   font-family: $serifFont;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: normal;
   margin: auto 0;
 
   @media (min-width: $xSmallRem) {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 
   @media (min-width: $mediumRem) {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   @media (min-width: $largeRem) {

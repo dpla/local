@@ -625,6 +625,7 @@ const LOCALS = {
     hasSidebar: false,
     hasBrowseByPartner: true,
     hasBrowseAll: false,
+    hasExhibits: true,
     exhibits: {
       title: "",
       description: ""

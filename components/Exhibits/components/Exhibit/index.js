@@ -60,6 +60,7 @@ const Exhibit = ({exhibit}) => {
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon/>}
                                         className={scss.exhibit__accordion_summary}
+                                        style={{paddingTop: "5px", borderTop: "1px solid #eee"}}
                                     >
                                         <h2 className={scss.exhibit__chapter}>
                                             Chapter {index}: {page.title}

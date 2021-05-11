@@ -1,39 +1,19 @@
 import parse from 'html-react-parser';
 import scss from "./MediaBlock.module.scss"
-import {Card} from "@material-ui/core";
+import {Card, Container} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 
-
 const MediaBlock = (attachment) => {
     return (
-        <section className={scss.media_block__section}>
-            {attachment.data.files && attachment.data.files.map(file => {
-                return (
-                    <>
-                        <img alt="" src={file.file_urls.original}/>
-                    </>
-                )
-            })}
-            <caption>{attachment.data.caption && parse(attachment.data.caption)}</caption>
-
-        </section>
-    )
-}
-
-const MediaBlock2 = (attachment) => {
-    console.log("MEDIA BLOCK 2")
-    return (
-            <Card>
-                <CardMedia className={scss.cardImage} image={attachment.data.files[0].file_urls.original}/>
-                <CardContent>
-                    <caption
-                        className={scss.caption}>
-                        {attachment.data.caption && parse(attachment.data.caption)}
-                    </caption>
-                </CardContent>
-            </Card>
-
+        <Container maxWidth={"md"}>
+        <Card>
+            <CardMedia className={scss.cardImage} image={attachment.data[0].files[0].file_urls.original}/>
+            <CardContent>
+                <caption className={scss.caption}> {attachment.data[0].caption && parse(attachment.data[0].caption)}</caption>
+            </CardContent>
+        </Card>
+        </Container>
     )
 }
 

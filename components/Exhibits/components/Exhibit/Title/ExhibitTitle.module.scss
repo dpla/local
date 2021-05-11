@@ -6,6 +6,13 @@
   padding-bottom: 1.5rem;
 }
 
+.credits {
+  font-family: $serifFont;
+  font-size: 1rem;
+  padding: 13px;
+  background-color: #eee;
+}
+
 .headlinetext {
   font-family: $serifFont;
   font-size: 3rem;
@@ -30,7 +37,7 @@
   display: flex;
   font-size: 0.875rem;
   line-height: 1.125;
-  padding: 0 1rem;
+  padding: 1rem 1rem;
 }
 
 .banner {
@@ -41,6 +48,7 @@
 }
 
 .image {
+  padding-top: 40%;
   background-repeat: no-repeat;
   background-clip: border-box;
   background-position: center;

@@ -5,9 +5,8 @@
 }
 
 .cardImage {
-  height: 500px;
-  width: 650px;
-  background-position: center;
+  height: 0;
+  padding-top: 100%; // 16:9
 }
 
 .media_block__section {
@@ -20,7 +19,6 @@
     font-style: italic;
     font-size: 0.875rem;
     font-family: $sansFont;
-    //text-align: left;
 
     p {
       font-size: 0.875rem;

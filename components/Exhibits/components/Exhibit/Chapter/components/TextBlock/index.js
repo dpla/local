@@ -3,11 +3,12 @@ import scss from "./TextBlock.module.scss"
 import {Container} from "@material-ui/core";
 
 const TextBlock = ({ data }) => {
+    console.log("TEXT BLOCK")
   return (
     <section className={scss.text_block__section}>
         <Container maxWidth={"md"}>
-      <h3>{data.headline}</h3>
-      {parse(data.text)}
+            <h3>{data.headline}</h3>
+            {parse(data.text)}
         </Container>
     </section>
   )

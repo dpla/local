@@ -12,7 +12,7 @@ const Exhibit = ({exhibit}) => {
 
     // passing in the specific panel makes it so that each of the accordions can be toggled
     const handleChange = (panel) => (event, newExpanded) => {
-        setExpanded(newExpanded ? panel : false);
+        setExpanded(true) //(newExpanded ? panel : false);
     };
 
     return (

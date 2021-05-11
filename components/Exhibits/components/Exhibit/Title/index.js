@@ -23,7 +23,7 @@ const ExhibitTitleGrid = ({exhibit}) => {
                 <Grid item xs={6}>
                     <Container className={scss.bodytext}>
                         <h1 className={scss.headlinetext}>{exhibit.title}</h1>
-                        <p className={scss.para}>{parse(frontpage.text)}</p>
+                        <span className={scss.para}>{parse(frontpage.text)}</span>
                         <p className={scss.para}><span className={classes.captionLeadIn}>Credits: </span> {parse(exhibit.credits)}</p>
                         <figcaption className={scss.caption}>
                             <p className={scss.para}>

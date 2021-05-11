@@ -11,7 +11,6 @@ export const loadAllExhibits = async () => {
         .sort((a, b) => b.id - a.id)
 }
 
-
 const loadExhibit = async exhibit => {
     const exhibitPageRes = await fetch(
         `https://dp.la/api/exhibition_pages?exhibit=${exhibit.id}`

@@ -22,6 +22,7 @@ const MediaBlock = (attachment) => {
 }
 
 const MediaBlock2 = (attachment) => {
+    console.log("MEDIA BLOCK 2")
     return (
             <Card>
                 <CardMedia className={scss.cardImage} image={attachment.data.files[0].file_urls.original}/>
@@ -37,4 +38,4 @@ const MediaBlock2 = (attachment) => {
 }
 
 
-export default MediaBlock2
+export default MediaBlock
